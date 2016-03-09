@@ -11,50 +11,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngStorage', 'starter.controlle
                 "senderID": "1063978477551",
             };
 
-            //           document.addEventListener("deviceready", function () {
-//                $cordovaPush.register(androidConfig).then(function (result) {
-//                    // Success
-//                    // alert("Success Token");
-//                }, function (err) {                  
-//                    alert("Fail Token");
-//                    alert(JSON.stringify(err));
-//                })
-
-//                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification) {
-//                    switch (notification.event) {
-//                        case 'registered':
-//                            if (notification.regid.length > 0) {
-//                                //  alert('registration ID = ' + notification.regid);
-//                                $localStorage.AccessToken = notification.regid;
-//                                // alert($localStorage.AccessToken);
-//                            }
-//                            break;
-//
-//                        case 'message':
-//                            // this is the actual push notification. its format depends on the data model from the push server
-//                            alert('message = ' + notification.message);
-//                            console.log(JSON.stringify(notification.message));
-//                            break;
-//
-//                        case 'error':
-//                            alert('GCM error = ' + notification.msg);
-//                            break;
-//
-//                        default:
-//                            alert('An unknown GCM event has occurred');
-//                            break;
-//                    }
-//                });
-
-
-//                $cordovaPush.unregister(options).then(function (result) {
-//                    // Success!
-//                }, function (err) {
-//                    // Error
-//                })
-
-            //           }, false);
-
             $ionicPlatform.ready(function () {
 
 
@@ -93,22 +49,20 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngStorage', 'starter.controlle
                         url: '/home',
                         templateUrl: 'templates/home.html',
                         controller: 'HomeCtrl',
-                        cache:false
+                        cache: false
                     })
 
                     .state('app', {
                         url: '/app',
                         abstract: true,
                         templateUrl: 'templates/menu.html',
-                        controller: 'AppCtrl'
-                        ,
-                        cache:false
+                        controller: 'AppCtrl',
+                        cache: false
                     })
 
                     .state('app.dashbord', {
                         url: '/dashbord',
-                
-                        cache:false,
+                        cache: false,
                         views: {
                             'menuContent': {
                                 templateUrl: 'templates/dashbord.html',
@@ -118,9 +72,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngStorage', 'starter.controlle
                         }
                     })
                     .state('app.points', {
-                        url: '/points'
-                ,
-                        cache:false,
+                        url: '/points',
+                        cache: false,
                         views: {
                             'menuContent': {
                                 templateUrl: 'templates/points.html',
@@ -131,7 +84,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngStorage', 'starter.controlle
                     })
                     .state('app.addconsumer', {
                         url: '/addconsumer',
-                cache:false,
+                        cache: false,
                         views: {
                             'menuContent': {
                                 templateUrl: 'templates/addconsumer.html',
@@ -142,7 +95,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngStorage', 'starter.controlle
                     })
                     .state('app.bonus', {
                         url: '/bonus',
-                cache:false,
+                        cache: false,
                         views: {
                             'menuContent': {
                                 templateUrl: 'templates/bonus.html',
@@ -153,7 +106,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngStorage', 'starter.controlle
                     })
                     .state('app.promotion', {
                         url: '/promotion',
-                cache:false,
+                        cache: false,
                         views: {
                             'menuContent': {
                                 templateUrl: 'templates/promotion.html',
@@ -162,7 +115,17 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngStorage', 'starter.controlle
                             }
                         }
                     })
+                    .state('app.logout', {
+                        url: '/logout',
+                        cache: false,
+                        views: {
+                            'menuContent': {
+                                templateUrl: 'templates/logout.html',
+                                controller: 'logoutCtrl'
 
+                            }
+                        }
+                    })
 
 
 

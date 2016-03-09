@@ -19,19 +19,6 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
-  
-  <plugin name="cordova-plugin-console" source="npm"/>
-   <plugin name="cordova-plugin-device" source="npm"/>   
-   <plugin name="ionic-plugin-keyboard" source="npm"/>
-  <plugin name="cordova-plugin-whitelist" source="npm"/>
-  <plugin name="cordova-plugin-splashscreen" source="npm"/>
-  <plugin name="cordova-plugin-statusbar" source="npm"/>  
-  <plugin name="phonegap-plugin-barcodescanner" source="npm"/>
-
-  
-  <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
-  <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
-  
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>

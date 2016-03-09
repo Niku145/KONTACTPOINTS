@@ -3,7 +3,7 @@ angular.module('starter.controllers', ['Kp.Factory'])
         .controller('AppCtrl', function ($scope, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
             // alert($localStorage.Name);
             $scope.Photo = ($localStorage.Photo == null || $localStorage.Photo == "" || $localStorage.Photo == "undefined") ? "img/blank-profile.png" : $localStorage.Photo;
-            $scope.Name = $localStorage.Name;
+            $scope.Name = $localStorage.storename;
         })
         .controller('HomeCtrl', function (KpFactory, $scope, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
             debugger;
@@ -67,23 +67,11 @@ angular.module('starter.controllers', ['Kp.Factory'])
                         $localStorage.counrty = response.Data[0].Country;
                         $localStorage.merchantinfoId = response.Data[0].UserInfoID;
                         $localStorage.useid = response.Data[0].UserID;
-
- $localStorage.Name = response.Data[0].StoreName;
-
+                        $localStorage.storename = response.Data[0].StoreName;
                         $timeout(function () {
                             $scope.closeLogin();
                         }, 100);
                         $ionicLoading.hide();
-
-
-
-
-                       
-//                        KpFactory.AddToken(TokenArray).then(function (response) {
-//                            //  alert(JSON.stringify(response)); 
-//                        });
-
-
                         $state.go("app.dashbord");
                     } else {
 
@@ -91,13 +79,11 @@ angular.module('starter.controllers', ['Kp.Factory'])
                         alert("Wrong Login Cradentials");
 
                     }
-                    // console.log(response);
+
                 });
 
 
             };
-
-
             $scope.doSignup = function () {
                 debugger;
 
@@ -198,9 +184,9 @@ angular.module('starter.controllers', ['Kp.Factory'])
 
         })
         .controller('pointsCtrl', function ($scope, KpFactory, $ionicModal, $window, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading, $ionicPlatform, $cordovaBarcodeScanner) {
-         
-           //alert("a");
-           $scope.points = {};
+
+            //alert("a");
+            $scope.points = {};
             $scope.item = {};
             $scope.partpayclass = "npp";
             $scope.partpayclass1 = "npp";
@@ -213,9 +199,9 @@ angular.module('starter.controllers', ['Kp.Factory'])
             $scope.points.netamt = 0;
             $scope.bonusamt = 0;
             $scope.focus2 = 0;
-            $scope.pin2 = {};           
-          
-            
+            $scope.pin2 = {};
+
+
             $scope.paymentoption = [
                 {text: "Other", value: "op"},
                 {text: "Part", value: "pp"},
@@ -249,28 +235,28 @@ angular.module('starter.controllers', ['Kp.Factory'])
 
             }
             $scope.consumerdata = function () {
-                
+
                 var consumerArray = {
                     "Email": $scope.points.userid,
                     "MerchantInfoId": $localStorage.merchantinfoId
                 }
-                 $ionicLoading.show({
-                            template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                        });
+                $ionicLoading.show({
+                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+                });
                 KpFactory.consumerdata(consumerArray).then(function (response) {
                     debugger;
-                        $ionicLoading.hide();
-                    if (response.data.status = "Success") {                                 
-                        
-                            alert(response.data.msg);
-                            $scope.points.pointsbalance = response.data.Data[0].Consumeramountbalance;
-                            $scope.points.amtbalance1 = response.data.Data[0].Consumeramountbalance / 100;
-                            $scope.points.consumerId = response.data.Data[0].UserId;
-                            $scope.bonusamt = response.data.BonusAmmount;
-                            $localStorage.pointsdata.bonusamount = response.data.BonusAmmount;
-                            $scope.points.bonus = response.data.BonusAmmount;
+                    $ionicLoading.hide();
+                    if (response.data.status = "Success") {
 
-                      
+                        alert(response.data.msg);
+                        $scope.points.pointsbalance = response.data.Data[0].Consumeramountbalance;
+                        $scope.points.amtbalance1 = response.data.Data[0].Consumeramountbalance / 100;
+                        $scope.points.consumerId = response.data.Data[0].UserId;
+                        $scope.bonusamt = response.data.BonusAmmount;
+                        $localStorage.pointsdata.bonusamount = response.data.BonusAmmount;
+                        $scope.points.bonus = response.data.BonusAmmount;
+
+
 
                     } else {
 
@@ -320,9 +306,9 @@ angular.module('starter.controllers', ['Kp.Factory'])
                 }
             }
             $scope.transaction = function () {
-              $ionicLoading.show({
-                        template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                    });
+                $ionicLoading.show({
+                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+                });
                 if ($scope.data.clientSide == "op") {
                     $scope.points.paymentype = "0";
                 } else
@@ -348,22 +334,22 @@ angular.module('starter.controllers', ['Kp.Factory'])
                     "RemainingAmmount": $scope.data.clientSide == "pp" && $scope.points.pointamt !== "" && $scope.points.pointamt !== undefined ? $scope.points.amount.toString() : "0"
                 }
                 KpFactory.transaction(transactionArray).then(function (response) {
-                    debugger;                   
-                   
-                        $ionicLoading.hide();
-                        alert(response.data);
-                        if (response.data == "Transaction Successfull" || response.data == "TransactionSuccessFull")
-                        {
-                            $window.location.reload();
-                        } else
-                        {
+                    debugger;
 
-                        }                  
+                    $ionicLoading.hide();
+                    alert(response.data);
+                    if (response.data == "Transaction Successfull" || response.data == "TransactionSuccessFull")
+                    {
+                        $window.location.reload();
+                    } else
+                    {
+
+                    }
 
 
                 });
-                
-                
+
+
 
 //                $timeout(function () {
 //                    //$scope.clear();
@@ -547,24 +533,24 @@ angular.module('starter.controllers', ['Kp.Factory'])
             KpFactory.viewpromotion(promotionArray).then(function (response) {
                 debugger;
                 $ionicLoading.show({
-                   template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
                 });
-                   $timeout(function () {
+                $timeout(function () {
                     $ionicLoading.hide();
-                     if (response.data.status == "Success") {
-                    //alert(response.data.msg);
-                    for (var i = 0; i < response.data.Data.length; i++) {
-                        $scope.promotions.push(response.data.Data[i])
+                    if (response.data.status == "Success") {
+                        //alert(response.data.msg);
+                        for (var i = 0; i < response.data.Data.length; i++) {
+                            $scope.promotions.push(response.data.Data[i])
+                        }
+                    } else {
+
+                        alert(response.data.msg);
+
                     }
-                } else {
-
-                    alert(response.data.msg);
-
-                }
-                $ionicSlideBoxDelegate.update();
+                    $ionicSlideBoxDelegate.update();
 
                 }, 3000);
-               
+
             });
             $scope.openupdate = function (cid, cname, isoffer, numoffer, sdate, edate, uoffer) {
                 $scope.upromotion.cid = cid;
@@ -637,5 +623,14 @@ angular.module('starter.controllers', ['Kp.Factory'])
             }
 
 
+        })
+        .controller('logoutCtrl', function ($scope, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading, $window) {
+
+            debugger;
+            $ionicHistory.clearHistory();
+            $ionicHistory.clearCache();
+            $localStorage.$reset();
+            debugger;
+            //   $window.localStorage.clear();
+            $state.go("home");
         });
-        

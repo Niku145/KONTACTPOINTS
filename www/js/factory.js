@@ -8,7 +8,6 @@ angular.module('Kp.Factory', [])
 
                 return "http://www.kpmobileservices.kontactpoints.com/api/Services/";
             }
-
             returnData.getLogin = function (LoginArray) {
 
                 //document.domain = 'www.zappzi.kontactpoints.com';
@@ -26,28 +25,7 @@ angular.module('Kp.Factory', [])
                     // console.log(JSON.stringify(err));
                 })
                 return $q.when(FetchedData);
-            }
-
-            returnData.getCategory = function () {
-                //document.domain = 'www.zappzi.kontactpoints.com';
-                var URL = "http://217.194.223.35/Zappzi/api/Services/GetCategory";
-                alert(URL);
-
-                var FetchedData = $http.get(URL).then(function (result) {
-
-                    alert("Success");
-                    console.log(JSON.stringify(result));
-                    return result.data;
-
-                }, function (err) {
-                    alert("Error");
-                    alert(JSON.stringify(err))
-                    console.log("error returned");
-                    console.log(JSON.stringify(err));
-                })
-                return $q.when(FetchedData);
-            }
-
+            }         
             returnData.getSignup = function (SignupArray) {
                 debugger;
                 //document.domain = 'www.zappzi.kontactpoints.com';
@@ -63,115 +41,7 @@ angular.module('Kp.Factory', [])
                     console.log(JSON.stringify(err));
                 })
                 return $q.when(FetchedData);
-            }
-
-            returnData.getStatement = function (StatementArray) {
-                debugger;
-                //document.domain = 'www.zappzi.kontactpoints.com';
-                var URL = this.API_URL() + "Verify_Consumer";
-                var FetchedData = $http.post(URL, StatementArray).then(function (result) {
-                    debugger;
-                    console.log(JSON.stringify(result));
-                    return result.data;
-                }, function (err) {
-                    debugger;
-                    console.log("error returned");
-                    console.log(JSON.stringify(err));
-                })
-                return $q.when(FetchedData);
-            }
-
-            returnData.getStatementDetail = function (StatementArray) {
-                debugger;
-
-                var URL = this.API_URL() + "GetStatements";
-                var FetchedData = $http.post(URL, StatementArray).then(function (result) {
-                    debugger;
-                    console.log(JSON.stringify(result));
-                    return result.data;
-                }, function (err) {
-                    debugger;
-                    console.log("error returned");
-                    console.log(JSON.stringify(err));
-                })
-                return $q.when(FetchedData);
-            }
-
-            returnData.AddToken = function (TokenArray) {
-                debugger;
-                //document.domain = 'www.zappzi.kontactpoints.com';
-                var URL = this.API_URL() + "AccessToken";
-                var FetchedData = $http.post(URL, TokenArray).then(function (result) {
-                    // debugger;
-                    //alert(JSON.stringify(result));                  
-                    return result;
-                }, function (err) {
-                    //  debugger;
-                    // alert(JSON.stringify(err));                    
-                })
-                return $q.when(FetchedData);
-            }
-
-            returnData.getContact = function (MyContactArray) {
-                var URL = this.API_URL() + "MyContact";
-                var FetchedData = $http.post(URL, MyContactArray).then(function (result) {
-                    console.log(JSON.stringify(result.data))
-                    return result;
-                }, function (err) {
-
-                })
-                return $q.when(FetchedData);
-            }
-
-            returnData.GroupCreation = function (MyGroupArray) {
-                debugger;
-                var URL = this.API_URL() + "GroupCreationNew";
-                var FetchedData = $http.post(URL, MyGroupArray).then(function (result) {
-                    console.log(JSON.stringify(result.data))
-                    return result;
-                }, function (err) {
-
-                })
-                return $q.when(FetchedData);
-            }
-
-            returnData.GetGroup = function (MyGroupListArray) {
-                var URL = this.API_URL() + "GroupView";
-                var FetchedData = $http.post(URL, MyGroupListArray).then(function (result) {
-                    console.log(JSON.stringify(result.data))
-                    return result;
-                }, function (err) {
-
-                })
-                return $q.when(FetchedData);
-            }
-
-
-            returnData.MyMessage = function (MyMessageArray) {
-                debugger;
-                var URL = this.API_URL() + "GroupMessageView";
-                var FetchedData = $http.post(URL, MyMessageArray).then(function (result) {
-                    //alert(JSON.stringify(result.data))
-                    //alert(JSON.stringify(result.data.Data))
-                    return result;
-                }, function (err) {
-
-                })
-                return $q.when(FetchedData);
-            }
-
-            returnData.ComposeMessage = function (SendMessageArray) {
-                debugger;
-                var URL = this.API_URL() + "ComposeMessage";
-                var FetchedData = $http.post(URL, SendMessageArray).then(function (result) {
-                    //alert(JSON.stringify(result.data))
-                    //alert(JSON.stringify(result.data.Data))
-                    return result;
-                }, function (err) {
-
-                })
-                return $q.when(FetchedData);
-            }
+            }        
             returnData.consumerdata = function (MerchantArray) {
                 var URL = this.API_URL() + "validated_Consumer";
                 var FetchedData = $http.post(URL, MerchantArray).then(function (result) {
