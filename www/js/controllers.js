@@ -67,29 +67,15 @@ angular.module('starter.controllers', ['Kp.Factory'])
                         $localStorage.counrty = response.Data[0].Country;
                         $localStorage.merchantinfoId = response.Data[0].UserInfoID;
                         $localStorage.useid = response.Data[0].UserID;
-//                        $scope.LoginData = response.Data;
-//                        $localStorage.ProfileData = "";
-//                        $localStorage.ProfileData = response.Data;
-//                        //$localStorage.Username = $scope.loginData.username;
-//                        //$localStorage.Password = $scope.loginData.password;
-//                        $localStorage.UserId = response.Data[0].UserId;
-//                        $localStorage.Email = response.Data[0].Email;
-//                        //$localStorage.City = response.Data[0].City;
-//                        //$localStorage.Website = response.Data[0].Website;
-//                        //$localStorage.Phone = response.Data[0].Phone;
-//                        $localStorage.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
-//                        //$localStorage.Gender = response.Data[0].Gender;
-//                        $localStorage.Photo = "http://kontactpoints.com/" + response.Data[0].Photo.replace('~', '').trim();
-//
-//                        //  http://kontactpoints.com/{{ProfileData.Logo.replace('~','').trim()}}
-//                        $scope.Photo = $localStorage.Photo;
-//                        $scope.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
+
+ $localStorage.Name = response.Data[0].StoreName;
+
                         $timeout(function () {
                             $scope.closeLogin();
                         }, 100);
                         $ionicLoading.hide();
 
- $localStorage.Name = response.Data[0].StoreName;
+
 
 
                        
