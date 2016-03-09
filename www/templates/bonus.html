@@ -1,0 +1,44 @@
+<ion-view view-title="Set Bonus">
+    <ion-content>
+        <table style="width:100%">
+            <tr>
+                <!--                <td style="padding-top:12px">
+                                    <span class="input-label" style="width:100%">select point</span> 
+                                </td>-->
+                <td colspan="2">
+                    <select ng-model="bonus.point" style="position:relative;    border-style: ridge;
+                            border-width: 1px;
+                            background-color: rgb(239, 115, 1);
+                            height:60px;
+                            width: 80%;
+                            margin-left:10%;
+                            margin-top:3%;
+                            text-align: center;
+                            color: white;font-size: 21px;
+                            font-weight: bold;">
+                        <option value="">Select Point</option>
+                        <option value="{{i}}"  ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]">{{i}} </option>
+                    </select>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <button class="button button-block button-positive" style="width: 50%;    margin-right: 20px;
+                            margin-left: 25%;
+                            margin-top: 20%;" ng-click="setbonus()">Enter</button>
+                </td>
+                <td>
+
+                </td>
+            </tr>   
+
+        </table>
+    </ion-content>
+</ion-view>
+

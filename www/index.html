@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title></title>
+
+        <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+        <link href="css/ionic.app.css" rel="stylesheet">
+        -->
+
+        <!-- ionic/angularjs js -->
+
+
+
+
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+        <!-- cordova script (this will be a 404 during development) -->
+
+        <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+        <script src="lib/ngstorage/ngStorage.min.js"></script>
+        <script src="cordova.js"></script>   
+        <script src="lib/ionic/js/angular/angular-resource.js"></script>
+
+        <!-- your app's js -->
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/factory.js"></script>
+        <style>
+
+            .pp {
+
+                background-color:white !important;
+            }
+            .npp {
+
+                background-color:#E0DDD8!important;
+            }
+            
+            .radio-icon
+            {
+                    padding: 6px !important;
+            }
+            .radio-content > .item-content 
+            {
+                    padding: 15px;
+            }
+        </style>
+
+        <style>
+            ion-header-bar {
+                border-bottom: 1px solid #e5e5e5;
+                background: #337ab7 !important;
+                border-radius: 4px 4px 0 0;
+                background: #EF7301 !important;
+            }
+
+            .header-item {
+                color: white !important;
+            }
+
+
+        </style>
+
+
+        <!-- <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+       <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
+
+        <style>
+
+            .flip-container {
+                -webkit-perspective: 1000;
+                -moz-perspective: 1000;
+                -o-perspective: 1000;
+                perspective: 1000;
+            }
+
+            .flip-container.flip .flipper {
+                -webkit-transform: rotateY(-180deg);
+                -moz-transform: rotateY(-180deg);
+                -o-transform: rotateY(-180deg);
+                -ms-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+            }
+
+            .flip-container,
+            .front,
+            .back {
+                margin-bottom: 40px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .flip-container .top,
+            .front .top,
+            .back .top {
+                padding: 30px 20px;
+            }
+
+            .flip-container .top,
+            .flip-container .icon-holder,
+            .front .top,
+            .front .icon-holder,
+            .back .top,
+            .back .icon-holder {
+                background-color: #777777;
+                color: #fff;
+            }
+
+            .flip-container .icon-holder,
+            .front .icon-holder,
+            .back .icon-holder {
+                margin: -25px auto 0;
+                border-radius: 50%;
+                border: 6px solid #fff;
+                width: 50px;
+                height: 50px;
+                padding: 7px 10px 10px;
+                font-size: x-large;
+            }
+
+            .front.success .top,
+            .front.success .icon-holder,
+            .back.success .top,
+            .back.success .icon-holder {
+                background-color: #23AE89;
+                color: #fff;
+            }
+            /* flip speed goes here */
+
+            .flipper {
+                transition: 0.6s;
+                -webkit-transition: 0.6s;
+                -moz-transition: 0.6s;
+                -o-transition: 0.6s;
+                -ms-transition: 0.6s;
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                -o-transform-style: preserve-3d;
+                -ms-transform-style: preserve-3d;
+                position: relative;
+            }
+            /* hide back of pane during swap */
+
+            .front,
+            .back {
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                -o-backface-visibility: hidden;
+                backface-visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            /* front pane, placed above back */
+
+            .front {
+                z-index: 2;
+                /* for firefox 31 */
+
+                -webkit-transform: rotateY(0deg);
+                -moz-transform: rotateY(0deg);
+                -o-transform: rotateY(0deg);
+                -ms-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+            }
+            /* back, initially hidden pane */
+
+            .back {
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                -o-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+        </style>
+
+
+        <style type="text/css">
+            .item-select:after
+
+            {
+                color: #131111 !important;
+            }
+        </style>
+    </head>
+
+    <body ng-app="starter">
+    <ion-nav-view>
+
+    </ion-nav-view>
+</body>
+</html>
