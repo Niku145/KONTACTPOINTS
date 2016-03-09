@@ -89,8 +89,10 @@ angular.module('starter.controllers', ['Kp.Factory'])
                         }, 100);
                         $ionicLoading.hide();
 
-$localStorage.Name=response.Data[0].StoreName;
-                       
+
+                        var TokenArray = {
+                            "AccessToken": $localStorage.AccessToken
+                        };
 //                        KpFactory.AddToken(TokenArray).then(function (response) {
 //                            //  alert(JSON.stringify(response)); 
 //                        });
