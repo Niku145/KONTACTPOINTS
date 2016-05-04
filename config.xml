@@ -5,7 +5,7 @@
         An Ionic Framework and Cordova project.
     </description>
   <author email="you@example.com" href="http://example.com.com/">
-      Safal
+      Your Name Here
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -24,7 +24,6 @@
   <plugin name="ionic-plugin-keyboard" source="npm"/>
   <plugin name="cordova-plugin-whitelist" source="npm"/>
 
-  <plugin name="com.phonegap.plugins.PushPlugin" source="npm"/>
   <plugin name="cordova-plugin-compat" source="npm"/>
   <plugin name="cordova-plugin-geolocation" source="npm"/>
   <plugin name="cordova-plugin-inappbrowser" source="npm"/>
