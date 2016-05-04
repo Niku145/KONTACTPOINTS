@@ -1,0 +1,60 @@
+<ion-view>
+    <script type="text/javascript">
+     function  unescap(str_esc){
+      return  unescape(str_esc)
+    }
+    </script>
+    <ion-content>
+        <div class="bar bar-header bar-light">
+            <div class="button-bar"> <a class="button"><i class="bi"></i></a> <img src="images/border.png"> <a class="button"><i class="bi2"></i></a> <img src="images/border.png"> <a class="button"><i class="bi12"></i></a> <img src="images/border.png"> <a class="button"><i class="bi4"></i></a> <img src="images/border.png"> <a class="button" href="#/home"><i class="bi5"></i></a> </div>
+        </div>
+        <div style="width:100%; margin-bottom:-5px;"><img src="images/bg2.png" style="width:100%; height:17px;/* margin-top:79px;*/"></div>
+        <div class="box001"><img src="images/lb_03.png" class="lb"></div>
+        <div class="box002" align="center"><b class="laba">LA BANCA</b></div>
+        <div class="box003">
+            <div class="loc">{{cal()}} M</div>
+            <div class="bg006"></div>
+        </div>
+        <div style="width:100%; margin-bottom:-5px;"><img src="images/bg2.png" style="width:100%; height:17px;/* margin-top:79px;*/"></div>
+      
+        <div ng-repeat="message in messages">
+            <div ng-if="message.CreatedDate.split('T')[0].toString()!==messages[$index-1].CreatedDate.split('T')[0].toString()">
+                      <div class="today" align="center">{{message.CreatedDate.split('T')[0]}}</div>
+                </div>
+            <div ng-if="message.IsMerchantReply === true">
+                
+                <div class="c1" align="right" style="clear:both">
+                    <div class="mer"><img src="images/basket_24.png" class="bask"></div>
+                </div>
+                <div class="c2">
+                    <div class="bubble" ng-bind-html="message.Description|sanitize" ></div>
+                </div>
+                
+                <div class="c3" align="center">
+        <div class="time">21:53</div>
+      </div>
+            </div>          
+            <div ng-if="message.IsConsumerReply === true">
+                
+                <div>
+                    <div class="c5" align="right">
+                        <div class="bubble2" ng-bind-html="message.Description"></div>
+                    </div>
+                </div>
+                <div class="c6" align="center">
+                    <div class="me">
+                        <div class="mef" >ME</div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div style="width:100%; margin-bottom:-5px;"><img src="images/bg2.png" style="width:100%; height:17px;/* margin-top:79px;*/"></div>
+        <input type="text" placeholder="Type message here" ng-model="input.message">
+        <div class="send" align="center"> <a href="" ng-click="sendMessage()"><div class="sendt" >Send</div></a></div>
+        <div class="bar bar-footer bar-balanced">
+            <div class="button-bar"> <a class="button" href="#/offerdetail"><i class="bi13"></i></a> <img src="images/border.png"> <a class="button"><i class="bi7"></i></a> <img src="images/border.png"> <a class="button"><i class="bi8"></i></a> <img src="images/border.png"> <a class="button"><i class="bi18"></i></a> <img src="images/border.png"> <a class="button"><i class="bi19"></i></a> </div>
+        </div>
+
+    </ion-content>        
+</ion-view>

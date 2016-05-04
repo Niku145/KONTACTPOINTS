@@ -1,7 +1,7 @@
 {
-  "name": "merchantkp",
+  "name": "consumerkp",
   "version": "1.1.1",
-  "description": "merchantkp: An Ionic project",
+  "description": "ConsumerKP: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -22,8 +22,5 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": [
-    "android",
-    "ios"
-  ]
+  "cordovaPlatforms": []
 }

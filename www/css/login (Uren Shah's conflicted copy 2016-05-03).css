@@ -1,0 +1,742 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+@font-face {
+    font-family:Raleway;
+    src: url(../fonts/Raleway-Regular.ttf);
+}
+@media(min-width:1024px) and (max-width:1920px) {
+	.log{
+	width:100%;
+	height:100%;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.log div{
+	width:156px;
+	height:168px;
+	background-image:url(../images/kpimg.png);
+	background-repeat:no-repeat;
+	background-size:130px;
+}
+
+.mrg{
+	padding-top:10px;
+}
+.mrg2{
+
+	margin-top:50px;
+	color:#FFF;
+}
+.mrg02{
+
+	margin-top:50px;
+	color:#FFF;
+}
+.mrg3{
+	margin-top:10px;
+	color:#FFF;
+}
+.logbg{
+	
+	width:100%;
+	height:400px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.logbg2{
+	width:400px;
+	height:100%;
+	background:url(../images/bg3_03.png) center;
+	background-repeat:no-repeat;
+	background-size:96%;
+}
+bg11{
+	background:url(../images/bg4_07.png) center;
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:40px;
+	height:150px;
+}
+.sign{
+	margin-top:10px;
+}
+.send{
+	margin-top:60px;
+}
+.font02{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFF;	
+}
+.font03{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#CCC;
+}
+.font04{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#0C0;
+}
+.inp{
+	padding-top:16px !important;
+}
+.btnbg{
+	width:100%;
+	height:59px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.btnbg1{
+	width:160px;
+	height:59px;
+	background-image:url(../images/btnbg_11.png);
+	background-repeat:no-repeat;
+	background-size:140px;
+}
+
+input{
+	margin-top:5px;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:none;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+	border-bottom-color:#FFF;
+}
+.font01{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#FFF;
+	margin-top:50px;
+}
+.font101{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#FFF;
+	margin-top:70px;
+}
+.user{
+	background:url(../images/android-contact.png);
+	background-size:25px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;
+}
+.user2{
+	background:url(../images/lock_11.png);
+	background-size:19px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;
+}
+.email{
+	background:url(../images/email_07.png);
+	background-size:25px;
+	background-repeat:no-repeat;
+	width:34px;
+	height:17px;
+}
+.font002{
+	margin-top:0px !important;
+}
+.bg01{
+	width:100px;
+}
+.hi{
+	height:50px;
+}
+}
+@media(min-width:769px) and (max-width:1023px) {
+	.log{
+	width:100%;
+	height:146px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.log div{
+	width:156px;
+	height:150px;
+	background-image:url(../images/kpimg.png);
+	background-repeat:no-repeat;
+	background-size:116px;
+}
+
+.mrg{
+	padding-top:10px;
+}
+.mrg2{
+
+	margin-top:28px;
+	color:#FFF;
+}
+.mrg3{
+	margin-top:10px;
+	color:#FFF;
+}
+.logbg{
+	
+	width:100%;
+	height:400px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.logbg2{
+	width:400px;
+	height:100%;
+	background:url(../images/bg3_03.png) center;
+	background-repeat:no-repeat;
+	background-size:90%;
+}
+bg11{
+	background:url(../images/bg4_07.png);
+	background-repeat:no-repeat;
+	background-size:150px;
+	width:40px;
+	height:150px;
+}
+.sign{
+	margin-top:10px;
+
+}
+.mrg02{
+
+	margin-top:50px;
+	color:#FFF;
+}
+.send{
+	margin-top:50px;
+
+}
+.font02{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFF;	
+	
+}
+.font03{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#CCC;
+
+}
+.font04{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#0C0;
+}
+.inp{
+	padding-top:16px !important;
+}
+.btnbg{
+	width:100%;
+	height:59px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.btnbg1{
+	width:160px;
+	height:59px;
+	background-image:url(../images/btnbg_11.png);
+	background-repeat:no-repeat;
+	background-size:140px;
+}
+
+input{
+	margin-top:5px;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:none;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+	border-bottom-color:#FFF;
+}
+.font01{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:90%;
+	color:#FFF;
+	margin-top:51px;
+	
+}
+.font101{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:90%;
+	color:#FFF;
+	margin-top:80px;
+	
+}
+.user{
+	background:url(../images/android-contact.png);
+	background-size:25px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;
+}
+.email{
+	background:url(../images/email_07.png);
+	background-size:25px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;
+}
+.user2{
+	background:url(../images/lock_11.png);
+	background-size:19px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;
+}
+.font002{
+	margin-top:0px !important;
+}
+.bg01{
+	width:100px;
+}
+.hi{
+	height:50px;
+}
+}
+@media(min-width:480px) and (max-width:768px) {
+	.log{
+	width:100%;
+	height:200px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.log div{
+	width:156px;
+	height:200px;
+	background-image:url(../images/kpimg.png);
+	background-repeat:no-repeat;
+	background-size:155px;
+}
+
+.mrg{
+	padding-top:10px;
+}
+.mrg2{
+
+	margin-top:25px;
+	color:#FFF;
+}
+.mrg02{
+
+	margin-top:45px;
+	color:#FFF;
+}
+
+.mrg3{
+	margin-top:10px;
+	color:#FFF;
+}
+.logbg{
+	
+	width:100%;
+	height:420px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.logbg2{
+	width:400px;
+	height:100%;
+	background:url(../images/bg3_03.png) center;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+bg11{
+	background:url(../images/bg4_07.png);
+	background-repeat:no-repeat;
+	background-size:150px;
+	width:40px;
+	height:150px;
+}
+.sign{
+	margin-top:10px;
+}
+.send{
+	margin-top:40px;
+}
+.font02{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFF;	
+}
+.font03{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#CCC;
+}
+.font04{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#0C0;
+}
+.inp{
+	padding-top:16px !important;
+}
+.btnbg{
+	width:100%;
+	height:59px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.btnbg1{
+	width:160px;
+	height:59px;
+	background-image:url(../images/btnbg_11.png);
+	background-repeat:no-repeat;
+	background-size:140px;
+}
+
+input{
+	margin-top:5px;
+	color:#FFF;
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:12px;
+	background:none;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+	border-bottom-color:#FFF;
+}
+.font01{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:12px;
+	color:#FFF;
+	margin-top:77px;
+	
+}
+.font101{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:12px;
+	color:#FFF;
+	margin-top:84px;
+	
+}
+.user{
+	background:url(../images/android-contact.png);
+	background-size:25px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;
+}
+.email{
+	background:url(../images/email_07.png);
+	background-size:25px;
+	background-repeat:no-repeat;
+	width:34px;
+	height:17px;
+}
+.user2{
+	background:url(../images/lock_11.png);
+	background-size:19px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;
+}
+.font002{
+	margin-top:0px !important;
+}
+.bg01{
+	width:100px;
+}
+.hi{
+	height:50px;
+}
+}
+@media(min-width:320px) and (max-width:479px) {
+	.log{
+	width:100%;
+	height:169px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.log div{
+	width:300px;
+	height:100%;
+	background:url(../images/kpimg.png) center;
+	background-repeat:no-repeat;
+	background-size:37%;
+}
+
+.mrg{
+	padding-top:10px;
+}
+.mrg2{
+
+	margin-top:15px;
+	color:#FFF;
+}
+.mrg02{
+
+	margin-top:45px;
+	color:#FFF;
+}
+.mrg3{
+	margin-top:1px;
+	color:#FFF;
+}
+.logbg{
+	
+	width:100%;
+	height:379px;
+	margin-top:0px !important;
+	margin-bottom:0px !important;
+}
+.logbg2{
+	width:300px;
+	height:100%;
+	background:url(../images/bg3_03.png) center;
+	background-repeat:no-repeat;
+	background-size:90%;
+}
+bg11{
+	background:url(../images/bg4_07.png);
+	background-repeat:no-repeat;
+	background-size:150px;
+	width:40px;
+	height:150px;
+}
+.sign{
+	margin-top:10px;
+}
+.send{
+	margin-top:40px;
+}
+.font02{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFF;	
+}
+.font03{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:7px;
+	color:#CCC;
+	padding-left:60px;
+}
+.font04{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:7px;
+	color:#0C0;
+	padding-right:55px;
+}
+.inp{
+	padding-top:16px !important;
+	width:100%;
+}
+.btnbg{
+	width:100%;
+	height:59px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.btnbg1{
+	width:160px;
+	height:59px;
+	background-image:url(../images/btnbg_11.png);
+	background-repeat:no-repeat;
+	background-size:140px;
+}
+
+input{
+	margin-top:5px;
+	color:#FFF;
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:12px;
+	background:none;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+	border-bottom-color:#FFF;
+}
+.font01{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:61%;
+	color:#FFF;
+	margin-top:65px;
+}
+.font101{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:61%;
+	color:#FFF;
+	margin-top:94px;
+}
+.user{
+	background:url(../images/android-contact.png);
+	background-size:16px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:15px;
+}
+.email{
+	background:url(../images/email_07.png);
+	background-size:16px;
+	background-repeat:no-repeat;
+	width:33px;
+	height:10px;
+}
+.user2{
+	background:url(../images/lock_11.png);
+	background-size:13px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:15px;
+}
+.font002{
+	margin-top:-10px !important;
+}
+.bg01{
+	width:100px;
+}
+.hi{
+	height:50px;
+}
+}
+@media(min-width:100px) and (max-width:319px) {
+		.log{
+	width:100%;
+	height:110px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.log div{
+	width:50%;
+	height:100%;
+	background:url(../images/kpimg.png) center;
+	background-repeat:no-repeat;
+	background-size:50%;
+}
+
+.mrg{
+	padding-top:10px;
+}
+.mrg2{
+
+	
+	color:#FFF;
+}
+.mrg02{
+	margin-top:30px;
+	color:#FFF;
+}
+
+.mrg3{
+	margin-top:1px;
+	color:#FFF;
+}
+.logbg{
+	
+	width:100%;
+	height:220px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.logbg2{
+	width:215px;
+	height:100%;
+	background:url(../images/bg3_03.png) center;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+bg11{
+	background:url(../images/bg4_07.png);
+	background-repeat:no-repeat;
+	background-size:150px;
+	width:40px;
+	height:150px;
+}
+.sign{
+	margin-top:-3px;
+}
+.send{
+	margin-top:23px;
+}
+.font02{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:6px;
+	color:#FFF;	
+}
+.font03{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:5px;
+	color:#CCC;
+}
+.font04{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:5px;
+	color:#0C0;
+}
+.inp{
+	padding-top:16px !important;
+}
+.btnbg{
+	width:100%;
+	height:59px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.btnbg1{
+	width:160px;
+	height:59px;
+	background-image:url(../images/btnbg_11.png);
+	background-repeat:no-repeat;
+	background-size:140px;
+}
+
+input{
+	margin-top:5px;
+	color:#FFF;
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:12px;
+	background:none;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+	border-bottom-color:#FFF;
+}
+.font01{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:60%;
+	color:#FFF;
+	margin-top:12px;
+}
+.font101{
+	font-family:Raleway, Tahoma, "geneva";
+	font-size:60%;
+	color:#FFF;
+	margin-top:32px;
+}
+.user{
+	background:url(../images/android-contact.png);
+	background-size:10px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:9px;
+}
+.email{
+	background:url(../images/email_07.png);
+	background-size:15px;
+	background-repeat:no-repeat;
+	width:40px;
+	height:9px;
+}
+.user2{
+	background:url(../images/lock_11.png);
+	background-size:9px;
+	background-repeat:no-repeat;
+	width:30px;
+	height:9px;
+}
+.bg01{
+	width:43px;
+}
+.hi{
+	height:11px;
+}
+}

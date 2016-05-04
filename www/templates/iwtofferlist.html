@@ -1,0 +1,43 @@
+<ion-view>
+    <ion-content>
+        <div class="bar bar-header bar-light">
+            <div class="button-bar"> <a class="button"><i class="bi"></i></a> <img src="images/border.png"> <a class="button"><i class="bi2"></i></a> <img src="images/border.png"> <a class="button"><i class="bi12"></i></a> <img src="images/border.png"> <a class="button"><i class="bi4"></i></a> <img src="images/border.png"> <a class="button" href="#/home"><i class="bi5"></i></a> </div>
+        </div>
+        <div ng-repeat="iwtofferlist in iwtofferlists" ng-click="offerdetail(iwtofferlist.IwtId,iwtofferlist.MerchantId,iwtofferlist.IwtOfferId,iwtofferlist.IsSeen)">
+            <div style="width:100%; margin-bottom:-5px;"><img src="images/bg2.png" style="width:100%; height:17px; margin-top:0px;"></div>
+            <div class="act">
+                <div class="d11">
+                    <div>
+                        <button class="buto"><font class="font05">Price </br>
+                            <b>&pound;{{iwtofferlist.OfferPrice}}</b></font></button>
+                    </div>
+                </div>
+                <div class="d2">
+                    <div class="d21">
+                        <div class="font06">RIVERS<br>
+                            <font class="font07">FORMAL SHIRT</font></div>
+                    </div>
+                    <div class="d22" align="center">
+                        <div style="width:80%; float:left;" align="right">&nbsp;</div>
+                        <div style="width:20%; float:left;" align="left"><img src="images/cart_17.png" class="mrg001" ></div>
+                    </div>
+                    <div class="d23"></div>
+                    <div class="font020">
+                        <div style="float:left; width:33%;" align="left"><img src="images/calender_24.png" class="image01"> <span class="date">{{date(iwtofferlist.CreatedDate)}}</span></div>
+                        <div style="float:left; width:33%;" align="center">LP:{{iwtofferlist.LP}}&nbsp;/&nbsp;&pound;1</div>
+                        <div style="float:left; width:33%;" align="right">RW:  {{iwtofferlist.RW=true?"Yes":"No"}} </div>
+                    </div>
+                </div>
+                <div class="d33">
+                    <button ng-class="offerclass(iwtofferlist.Status)">
+                        <div class="font010">{{iwtofferlist.Status}}</div>
+                        <div ng-class="iwtofferlist.Status=='REJECTED'?'bg24':'bg22'"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="bar bar-footer bar-balanced">
+            <div class="button-bar"> <a class="button" href="#/iwtlist"><i class="bi13"></i></a> <img src="images/border.png"> <a class="button"><i class="bi14"></i></a> <img src="images/border.png"> <a class="button"><i class="bi15"></i></a> <img src="images/border.png"> <a class="button"><i class="bi16"></i></a> <img src="images/border.png"> <a class="button"><i class="bi17"></i></a> </div>
+        </div>
+    </ion-content>
+</ion-view>

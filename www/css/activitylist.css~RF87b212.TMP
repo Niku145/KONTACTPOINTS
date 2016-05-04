@@ -1,0 +1,39 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+.act{
+	width:100%;
+	height:100px;
+	background-color:#f0f0f0;
+}
+
+.d1{
+	float:left;
+	width:10%;
+	height:100px;
+}
+.d1 .d11{
+	width:100%;
+	height:100px;
+	background:url(../images/bg_18.png);
+	background-repeat:no-repeat;
+	background-size:70%;
+}
+.d2{
+	float:left;
+	width:80%;
+	height:100px;
+}
+.d3{
+	float:left;
+	width:9%;
+	height:100px;
+}
+.d3 .d33{
+	width:100%;
+	height:100px;
+	background:url(../images/bg_05.png);
+	background-repeat:no-repeat;
+	background-size:70%;
+}

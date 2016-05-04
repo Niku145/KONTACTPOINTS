@@ -1,41 +1,31 @@
-<ion-modal-view>
-  <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
-    <h1 class="title" style="color:#fff;text-align: center;    font-size: 121%;">Signup to Kontact Points</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeSignup()" style="color:#fff;text-align: center;    font-size: 100%;">
-           <i class="icon ion-close-circled"></i>
-          </button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doSignup()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="text" ng-model="loginData.username" placeholder="Enter Email Address"/>
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password" placeholder="Enter Password"/>
-        </label>
-           <label class="item item-input">
-          <span class="input-label">Mobile</span>
-          <input type="number" ng-model="loginData.mobile" placeholder="Enter Mobile Number"/>
-        </label>
-           <label class="item item-input">
-          <span class="input-label">Address</span>
-          <textarea  ng-model="loginData.address" placeholder="Enter Address"></textarea>
-        </label>
-        <label class="item">
-<!--          <button class="button button-block button-positive" type="submit" style="    color: #fff;
-    background-color: #286090;
-    border-color: #204d74;">Submit</button>-->
-     <button class="button icon-right ion-chevron-right button-block button-positive"  style="
-                                background-color: #286090;border-color: #204d74;">
-                            Submit
-                        </button>
-        </label>
-      </div>
-    </form>
-  </ion-content>
-</ion-modal-view>
+<ion-view>
+    <ion-content>
+         <div class="log" align="center"><div></div></div>
+        <div class="logbg" align="center">
+            <div class="logbg2">
+                <div class="inp">                   
+                    <div class="bg11" align="center">
+                        <div class="mrg02"><label class="item item-input">                            
+                                <input type="text" placeholder="First Name" ng-model="getmail.mailid">
+                            </label>
+                        </div>
+                    </div>
+                     <div class="bg11" align="center">
+                       <label class="item item-input">                            
+                                <input type="text" placeholder="Last Name" ng-model="getmail.mailid">
+                            </label>
+                      
+                    </div>
+                    <div class="mrg3">
+                        <div class="hi">
+                           
+                                <div class="send"><img src="images/send_11.png" class="bg01" ng-click="getpassword()"></div>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>                    
+            </div>                    
+        </div>
+        
+    </ion-content>
+</ion-view>
