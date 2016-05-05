@@ -6,12 +6,14 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','starter.controllers'])
 
-        .run(function ($ionicPlatform, $localStorage, $rootScope, $cordovaPush,KpFactory,$state,$ionicLoading) {
+        .run(function ($ionicPlatform, $localStorage, KpFactory,$state,$ionicLoading) {
             var androidConfig = {
                 "senderID": "1063978477551",
             };
+
             document.addEventListener("deviceready", function () {
-               /* $cordovaPush.register(androidConfig).then(function (result) {
+              
+                /* $cordovaPush.register(androidConfig).then(function (result) {
                     // Success
                     // alert("Success Token");
                 }, function (err) {
@@ -19,103 +21,102 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
                     alert(JSON.stringify(err));
                 })*/
 
-                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification)  {
-                    switch (notification.event) {
-                        case 'registered':
-                            if (notification.regid.length > 0) {
-                                //  alert('registration ID = ' + notification.regid);
-                                $localStorage.AccessToken = notification.regid;
-                                //   alert($localStorage.AccessToken);
-                            }
-                            break;
-//
-                        case 'message':
-                            // this is the actual push notification. its format depends on the data model from the push server
-                            alert("Kontact Points Merchant Send One New Transaction Request");
-                            //console.log(JSON.stringify(notification));
-                            //  console.log(JSON.stringify(notification.payload.data));
-                            // console.log(JSON.stringify(notification.payload.data.AdditionaData));
-                            // console.log(JSON.stringify(notification.message));
-                            //alert('ConsumerId = ' + notification.payload.data.AdditionaData.ConsumerId);
-                            // alert('MerchantId = ' + notification.payload.data.AdditionaData.MerchantId);
-                            //  alert('type = ' + notification.payload.data.AdditionaData.type);
-                            // alert('status = ' + notification.payload.data.AdditionaData.status);
+//                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification)  {
+//                    switch (notification.event) {
+//                        case 'registered':
+//                            if (notification.regid.length > 0) {
+//                                //  alert('registration ID = ' + notification.regid);
+//                                $localStorage.AccessToken = notification.regid;
+//                                //   alert($localStorage.AccessToken);
+//                            }
+//                            break;
+////
+//                        case 'message':
+//                            // this is the actual push notification. its format depends on the data model from the push server
+//                            alert("Kontact Points Merchant Send One New Transaction Request");
+//                            //console.log(JSON.stringify(notification));
+//                            //  console.log(JSON.stringify(notification.payload.data));
+//                            // console.log(JSON.stringify(notification.payload.data.AdditionaData));
+//                            // console.log(JSON.stringify(notification.message));
+//                            //alert('ConsumerId = ' + notification.payload.data.AdditionaData.ConsumerId);
+//                            // alert('MerchantId = ' + notification.payload.data.AdditionaData.MerchantId);
+//                            //  alert('type = ' + notification.payload.data.AdditionaData.type);
+//                            // alert('status = ' + notification.payload.data.AdditionaData.status);
 
-                            //  alert('UserName = ' + notification.payload.data.AdditionaData.UserName);
-                            // alert('Password = ' + notification.payload.data.AdditionaData.Password);
+//                            //  alert('UserName = ' + notification.payload.data.AdditionaData.UserName);
+//                            // alert('Password = ' + notification.payload.data.AdditionaData.Password);
 
-                            if (notification.payload.data.AdditionaData.type.toString() == "Transaction")
-                            {
-                                $localStorage.ConsumerId = notification.payload.data.AdditionaData.ConsumerId;
-                                $localStorage.MerchantId = notification.payload.data.AdditionaData.MerchantId;
-                                $localStorage.UserName = notification.payload.data.AdditionaData.UserName;
-                                $localStorage.Password = notification.payload.data.AdditionaData.Password;
+//                            if (notification.payload.data.AdditionaData.type.toString() == "Transaction")
+//                            {
+//                                $localStorage.ConsumerId = notification.payload.data.AdditionaData.ConsumerId;
+//                                $localStorage.MerchantId = notification.payload.data.AdditionaData.MerchantId;
+//                                $localStorage.UserName = notification.payload.data.AdditionaData.UserName;
+//                                $localStorage.Password = notification.payload.data.AdditionaData.Password;
 
-                                $ionicLoading.show({
-                                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                                });
-                                debugger;
-                                var LoginArray = {
-                                    "UserName": notification.payload.data.AdditionaData.UserName,
-                                    "password": notification.payload.data.AdditionaData.Password,
-                                    "DeviceToken": $localStorage.AccessToken
-                                };
+//                                $ionicLoading.show({
+//                                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+//                                });
+//                                debugger;
+//                                var LoginArray = {
+//                                    "UserName": notification.payload.data.AdditionaData.UserName,
+//                                    "password": notification.payload.data.AdditionaData.Password,
+//                                    "DeviceToken": $localStorage.AccessToken
+//                                };
 
-                                $rootScope.LoginData = {};
+//                                $rootScope.LoginData = {};
 
-                                KpFactory.getLogin(LoginArray).then(function (response) {
-                                    console.log("OK");
-                                    debugger;
-                                    if (response.Data != null) {
-                                        $rootScope.LoginData = response.Data;
-                                        $localStorage.ProfileData = "";
-                                        $localStorage.ProfileData = response.Data;
-                                        $localStorage.UserId = response.Data[0].UserId;
-                                        $localStorage.Email = response.Data[0].Email;
-                                        $localStorage.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
-                                        $localStorage.Photo = "http://kontactpoints.com/" + response.Data[0].Photo.replace('~', '').trim();
+//                                KpFactory.getLogin(LoginArray).then(function (response) {
+//                                    console.log("OK");
+//                                    debugger;
+//                                    if (response.Data != null) {
+//                                        $rootScope.LoginData = response.Data;
+//                                        $localStorage.ProfileData = "";
+//                                        $localStorage.ProfileData = response.Data;
+//                                        $localStorage.UserId = response.Data[0].UserId;
+//                                        $localStorage.Email = response.Data[0].Email;
+//                                        $localStorage.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
+//                                        $localStorage.Photo = "http://kontactpoints.com/" + response.Data[0].Photo.replace('~', '').trim();
 
-                                        $rootScope.Photo = $localStorage.Photo;
-                                        $rootScope.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
-                                        $timeout(function () {
-                                            $scope.closeLogin();
-                                        }, 100);
-                                        $ionicLoading.hide();
+//                                        $rootScope.Photo = $localStorage.Photo;
+//                                        $rootScope.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
+//                                        $timeout(function () {
+//                                            $scope.closeLogin();
+//                                        }, 100);
+//                                        $ionicLoading.hide();
 
-                                        var TokenArray = {
-                                            "AccessToken": $localStorage.AccessToken
-                                        };
-                                        KpFactory.AddToken(TokenArray).then(function (response) {
-                                            //  alert(JSON.stringify(response)); 
-                                        });
+//                                        var TokenArray = {
+//                                            "AccessToken": $localStorage.AccessToken
+//                                        };
+//                                        KpFactory.AddToken(TokenArray).then(function (response) {
+//                                            //  alert(JSON.stringify(response)); 
+//                                        });
 
-                                        $state.go("app.merchantTransactionRequest");
-                                    } else {
+//                                        $state.go("app.merchantTransactionRequest");
+//                                    } else {
 
-                                        $ionicLoading.hide();
-                                        alert("Wrong Login Cradentials");
+//                                        $ionicLoading.hide();
+//                                        alert("Wrong Login Cradentials");
 
-                                    }
-                                    // console.log(response);
-                                });
+//                                    }
+//                                    // console.log(response);
+//                                });
 
 
-                            }
+//                            }
 
-                            break;
-//
-                        case 'error':
-                            alert('GCM error = ' + notification.msg);
-                            break;
+//                            break;
+////
+//                        case 'error':
+//                            alert('GCM error = ' + notification.msg);
+//                            break;
 
-                        default:
-                            alert('An unknown GCM event has occurred');
-                            break;
-                    }
-                });
+//                        default:
+//                            alert('An unknown GCM event has occurred');
+//                            break;
+//                    }
+//                });
 
-<<<<<<< HEAD
-=======
+
             //           document.addEventListener("deviceready", function () {
 //                $cordovaPush.register(androidConfig).then(function (result) {
 //                    // Success
@@ -158,18 +159,20 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
 //                    // Error
 //                })
 
-            //           }, false);
+                //           }, false);
 
-            $ionicPlatform.ready(function () {
->>>>>>> parent of 84aac52... ok
 
-                $cordovaPush.unregister(options).then(function (result) {
-                    // Success!
-                }, function (err) {
-                    // Error
-                })
 
-            }, false);
+            //$ionicPlatform.ready(function () {
+
+
+            //    $cordovaPush.unregister(options).then(function (result) {
+            //        // Success!
+            //    }, function (err) {
+            //        // Error
+            //    })
+
+            //}, false);
             $ionicPlatform.ready(function () {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)
@@ -190,7 +193,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
                     .state('home', {
                         url: '/home',
                         templateUrl: 'templates/home.html',
-<<<<<<< HEAD
+
                         controller: 'HomeCtrl'
                     })
                     .state('forgotpassword', {
@@ -247,7 +250,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
                         templateUrl: 'templates/offerdescript.html',
                         controller: 'offerdescriptCtrl'
                     })
-=======
+
                         controller: 'HomeCtrl',
                         cache:false
                     })
@@ -319,7 +322,7 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
                         }
                     })
 
->>>>>>> parent of 84aac52... ok
+
 
 
             // if none of the above states are matched, use this as the fallback
