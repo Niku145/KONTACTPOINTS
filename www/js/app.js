@@ -11,15 +11,15 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
                 "senderID": "1063978477551",
             };
             document.addEventListener("deviceready", function () {
-                $cordovaPush.register(androidConfig).then(function (result) {
+               /* $cordovaPush.register(androidConfig).then(function (result) {
                     // Success
                     // alert("Success Token");
                 }, function (err) {
                     alert("Fail Token");
                     alert(JSON.stringify(err));
-                })
+                })*/
 
-                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification) {
+                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification)  {
                     switch (notification.event) {
                         case 'registered':
                             if (notification.regid.length > 0) {
