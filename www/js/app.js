@@ -10,18 +10,16 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
             var androidConfig = {
                 "senderID": "1063978477551",
             };
+//            document.addEventListener("deviceready", function () {
+//                $cordovaPush.register(androidConfig).then(function (result) {
+//                    // Success
+//                    // alert("Success Token");
+//                }, function (err) {
+//                    alert("Fail Token");
+//                    alert(JSON.stringify(err));
+//                })
 
-            document.addEventListener("deviceready", function () {
-              
-                /* $cordovaPush.register(androidConfig).then(function (result) {
-                    // Success
-                    // alert("Success Token");
-                }, function (err) {
-                    alert("Fail Token");
-                    alert(JSON.stringify(err));
-                })*/
-
-//                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification)  {
+//                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification) {
 //                    switch (notification.event) {
 //                        case 'registered':
 //                            if (notification.regid.length > 0) {
@@ -117,62 +115,13 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
 //                });
 
 
-            //           document.addEventListener("deviceready", function () {
-//                $cordovaPush.register(androidConfig).then(function (result) {
-//                    // Success
-//                    // alert("Success Token");
-//                }, function (err) {                  
-//                    alert("Fail Token");
-//                    alert(JSON.stringify(err));
-//                })
-
-//                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification) {
-//                    switch (notification.event) {
-//                        case 'registered':
-//                            if (notification.regid.length > 0) {
-//                                //  alert('registration ID = ' + notification.regid);
-//                                $localStorage.AccessToken = notification.regid;
-//                                // alert($localStorage.AccessToken);
-//                            }
-//                            break;
-//
-//                        case 'message':
-//                            // this is the actual push notification. its format depends on the data model from the push server
-//                            alert('message = ' + notification.message);
-//                            console.log(JSON.stringify(notification.message));
-//                            break;
-//
-//                        case 'error':
-//                            alert('GCM error = ' + notification.msg);
-//                            break;
-//
-//                        default:
-//                            alert('An unknown GCM event has occurred');
-//                            break;
-//                    }
-//                });
-
-
 //                $cordovaPush.unregister(options).then(function (result) {
 //                    // Success!
 //                }, function (err) {
 //                    // Error
 //                })
 
-                //           }, false);
-
-
-
-            //$ionicPlatform.ready(function () {
-
-
-            //    $cordovaPush.unregister(options).then(function (result) {
-            //        // Success!
-            //    }, function (err) {
-            //        // Error
-            //    })
-
-            //}, false);
+//            }, false);
             $ionicPlatform.ready(function () {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)
@@ -193,7 +142,6 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
                     .state('home', {
                         url: '/home',
                         templateUrl: 'templates/home.html',
-
                         controller: 'HomeCtrl'
                     })
                     .state('forgotpassword', {
@@ -250,79 +198,6 @@ angular.module('starter', ['ionic', 'ngStorage', 'ngCordova', 'Kp.Factory','star
                         templateUrl: 'templates/offerdescript.html',
                         controller: 'offerdescriptCtrl'
                     })
-
-                        controller: 'HomeCtrl',
-                        cache:false
-                    })
-
-                    .state('app', {
-                        url: '/app',
-                        abstract: true,
-                        templateUrl: 'templates/menu.html',
-                        controller: 'AppCtrl'
-                        ,
-                        cache:false
-                    })
-
-                    .state('app.dashbord', {
-                        url: '/dashbord',
-                
-                        cache:false,
-                        views: {
-                            'menuContent': {
-                                templateUrl: 'templates/dashbord.html',
-                                controller: 'DashbordCtrl'
-
-                            }
-                        }
-                    })
-                    .state('app.points', {
-                        url: '/points'
-                ,
-                        cache:false,
-                        views: {
-                            'menuContent': {
-                                templateUrl: 'templates/points.html',
-                                controller: 'pointsCtrl'
-
-                            }
-                        }
-                    })
-                    .state('app.addconsumer', {
-                        url: '/addconsumer',
-                cache:false,
-                        views: {
-                            'menuContent': {
-                                templateUrl: 'templates/addconsumer.html',
-                                controller: 'addconsumerCtrl'
-
-                            }
-                        }
-                    })
-                    .state('app.bonus', {
-                        url: '/bonus',
-                cache:false,
-                        views: {
-                            'menuContent': {
-                                templateUrl: 'templates/bonus.html',
-                                controller: 'bonusCtrl'
-
-                            }
-                        }
-                    })
-                    .state('app.promotion', {
-                        url: '/promotion',
-                cache:false,
-                        views: {
-                            'menuContent': {
-                                templateUrl: 'templates/promotion.html',
-                                controller: 'promotionCtrl'
-
-                            }
-                        }
-                    })
-
-
 
 
             // if none of the above states are matched, use this as the fallback

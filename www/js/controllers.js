@@ -1,13 +1,4 @@
 angular.module('starter.controllers', ['Kp.Factory'])
-<<<<<<< HEAD
-=======
-
-        .controller('AppCtrl', function ($scope, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
-            // alert($localStorage.Name);
-            $scope.Photo = ($localStorage.Photo == null || $localStorage.Photo == "" || $localStorage.Photo == "undefined") ? "img/blank-profile.png" : $localStorage.Photo;
-            $scope.Name = $localStorage.Name;
-        })
->>>>>>> parent of 84aac52... ok
         .controller('HomeCtrl', function (KpFactory, $scope, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
             debugger;
             // Form data for the login modal
@@ -30,7 +21,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
 
                     debugger;
                     if (response.Data != null) {
-<<<<<<< HEAD
                         $scope.LoginData = response.Data;
                         $localStorage.ProfileData = "";
                         $localStorage.ProfileData = response.Data;
@@ -47,23 +37,10 @@ angular.module('starter.controllers', ['Kp.Factory'])
                         //  http://kontactpoints.com/{{ProfileData.Logo.replace('~','').trim()}}
                         $scope.Photo = $localStorage.Photo;
                         $scope.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
-=======
-                        $localStorage.pointsdata.CurrentPointsBalance = response.CurrentPointsBalance;
-                        $localStorage.pointsdata.CurrentPromotionViews = response.CurrentPromotionViews;
-                        $localStorage.pointsdata.TotalPromotionViews = response.TotalPromotionViews;
-                        $localStorage.pointsdata.CurrentRevenue = response.CurrentRevenue;
-                        $localStorage.counrty = response.Data[0].Country;
-                        $localStorage.merchantinfoId = response.Data[0].UserInfoID;
-                        $localStorage.useid = response.Data[0].UserID;
-
- $localStorage.Name = response.Data[0].StoreName;
-
->>>>>>> parent of 84aac52... ok
                         $timeout(function () {
                             $scope.closeLogin();
                         }, 100);
                         $ionicLoading.hide();
-<<<<<<< HEAD
                         var TokenArray = {
                             "AccessToken": $localStorage.AccessToken
                         };
@@ -71,19 +48,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
                             //  alert(JSON.stringify(response)); 
                         });
                         $state.go("iwtlist");
-=======
-
-
-
-
-                       
-//                        KpFactory.AddToken(TokenArray).then(function (response) {
-//                            //  alert(JSON.stringify(response)); 
-//                        });
-
-
-                        $state.go("app.dashbord");
->>>>>>> parent of 84aac52... ok
                     } else {
 
                         $ionicLoading.hide();
@@ -92,7 +56,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
                     // console.log(response);
                 });
             };
-<<<<<<< HEAD
             $scope.getpassword = function () {
                 $state.go("forgotpassword");
             }
@@ -107,37 +70,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
                     UserName: $scope.getmail.mailid
                 }
                 KpFactory.forgotpassword(passwordArray).then(function (response) {
-=======
-
-
-            $scope.doSignup = function () {
-                debugger;
-
-                $ionicLoading.show({
-                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                });
-
-                var SignupArray = {
-                    "UserName": $scope.loginData.username,
-                    "Password": $scope.loginData.password,
-                    "email": $scope.loginData.username,
-                    "parentId": "1",
-                    "FirstName": "",
-                    "LastName": "",
-                    "gender": "M",
-                    "Pin": "1234",
-                    "birth": "01/01/1990",
-                    "Zipcode": "",
-                    "mobile": $scope.loginData.mobile,
-                    "altemail": $scope.loginData.email,
-                    "question": "Nothing",
-                    "answer": "s",
-                    "photo": ""
-                };
-
-
-                KpFactory.getSignup(SignupArray).then(function (response) {
->>>>>>> parent of 84aac52... ok
 
                     debugger;
                     if (response.data.status = "Ok") {
@@ -151,7 +83,58 @@ angular.module('starter.controllers', ['Kp.Factory'])
                 });
             }
         })
-        .controller('signupCtrl', function ($scope, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
+        .controller('signupCtrl', function ($scope,  KpFactory, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
+            $scope.loginData = {};
+      $scope.Gender = {
+                gender: 'M'
+            };
+            $scope.range = function (step) {
+                var min = new Date().getFullYear() - 25;
+                var max=new Date().getFullYear() +25;
+
+                step = step || 1;
+                $scope.input = [];
+                for (var i = min; i <= max; i += step) {
+                    $scope.input.push(i);
+                }
+                return $scope.input;
+            };
+               $scope.doSignup = function () {
+                $ionicLoading.show({
+                   template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+               });
+                debugger;
+                var SignupArray = {
+                    "UserName": $scope.loginData.username,
+                    "Password": $scope.loginData.password,
+                    "email": $scope.loginData.username,
+                    "parentId": "1",
+                    "FirstName": $scope.loginData.fname,
+                    "LastName": $scope.loginData.lname,
+                    "gender": $scope.Gender.gender,
+                    "Pin": $scope.loginData.pin,
+                    "birth": $scope.loginData.yob,
+                    "Zipcode": $scope.loginData.postcode,
+                    "mobile": "",
+                    "altemail": $scope.loginData.username,
+                    "question": $scope.loginData.sq,
+                    "answer": $scope.loginData.ans,
+                    "photo": ""
+                };
+                KpFactory.getSignup(SignupArray).then(function (response) {
+
+                    debugger;
+                    $ionicLoading.hide();
+
+                    if (response.data.status = "Success") {
+                        alert(response.data.msg);                    
+                        $state.go("home");
+                    } else {
+                        alert(response.data.msg);
+                    }
+
+                });
+            };
 
         })
         .controller('iwtlistCtrl', function ($scope, $rootScope, KpFactory, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
@@ -202,53 +185,16 @@ angular.module('starter.controllers', ['Kp.Factory'])
                     $scope.iwtofferlists = response.data.Data;
                 } else {
 
-<<<<<<< HEAD
                     alert(response.data.msg);
                 }
 
             });
-=======
-        })
-        .controller('pointsCtrl', function ($scope, KpFactory, $ionicModal, $window, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading, $ionicPlatform, $cordovaBarcodeScanner) {
-         
-           //alert("a");
-           $scope.points = {};
-            $scope.item = {};
-            $scope.partpayclass = "npp";
-            $scope.partpayclass1 = "npp";
-            $scope.show = 0;
-            $scope.show1 = 0;
-            $scope.imageurl = {};
-            $scope.offer = {};
-            $scope.Manoffer = {};
-            $scope.points.bonus = 0;
-            $scope.points.netamt = 0;
-            $scope.bonusamt = 0;
-            $scope.focus2 = 0;
-            $scope.pin2 = {};           
-          
-            
-            $scope.paymentoption = [
-                {text: "Other", value: "op"},
-                {text: "Part", value: "pp"},
-                {text: "Full", value: "fpp"}
-
-            ];
-            $scope.data = {
-                clientSide: 'op'
-            };
-            if ($localStorage.counrty.toUpperCase() == "UK")
-            {
-                $scope.imageurl = "img/pound.png";
-            } else if ($localStorage.counrty.toUpperCase() == "INDIA") {
->>>>>>> parent of 84aac52... ok
 
             toRad = function (value) {
                 return value * Math.PI / 180;
             }
             $scope.cal = function (merlat, merlong) {
                 debugger;
-<<<<<<< HEAD
                 var R = 6371;
                 var dLat = toRad(merlat - $stateParams.Lat);
                 var dLon = toRad(merlong - $stateParams.Long);
@@ -286,44 +232,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
                     if (response.data.status == "Success") {
                         alert(response.data.msg);
                         $scope.iwtofferlists = response.data.Data;
-=======
-                $scope.points.userid = "";
-                $scope.points.payamt = "";
-                $scope.points.bonus = 0;
-                $scope.points.netamt = 0;
-                $scope.points.pointamt = "";
-                $scope.points.amount = "";
-                $scope.points.pin1 = "";
-                $scope.points.pin2 = "";
-                $scope.points.pin3 = "";
-                $scope.points.pin4 = "";
-
-            }
-            $scope.consumerdata = function () {
-                
-                var consumerArray = {
-                    "Email": $scope.points.userid,
-                    "MerchantInfoId": $localStorage.merchantinfoId
-                }
-                 $ionicLoading.show({
-                            template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                        });
-                KpFactory.consumerdata(consumerArray).then(function (response) {
-                    debugger;
-                        $ionicLoading.hide();
-                    if (response.data.status = "Success") {                                 
-                        
-                            alert(response.data.msg);
-                            $scope.points.pointsbalance = response.data.Data[0].Consumeramountbalance;
-                            $scope.points.amtbalance1 = response.data.Data[0].Consumeramountbalance / 100;
-                            $scope.points.consumerId = response.data.Data[0].UserId;
-                            $scope.bonusamt = response.data.BonusAmmount;
-                            $localStorage.pointsdata.bonusamount = response.data.BonusAmmount;
-                            $scope.points.bonus = response.data.BonusAmmount;
-
-                      
-
->>>>>>> parent of 84aac52... ok
                     } else {
 
                         alert(response.data.msg);
@@ -340,23 +248,11 @@ angular.module('starter.controllers', ['Kp.Factory'])
                 var dt = date.split("-")[1] + "/" + (date.split("-")[2]).split("T")[0] + "/" + date.split("-")[0];
                 return dt;
             }
-<<<<<<< HEAD
             $scope.offerclass = function (status) {
                 if (status == 'REJECTED') {
                     return 'buto4';
                 } else if (status == 'ACCEPTED') {
                     return 'buto';
-=======
-            $scope.transaction = function () {
-              $ionicLoading.show({
-                        template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                    });
-                if ($scope.data.clientSide == "op") {
-                    $scope.points.paymentype = "0";
-                } else
-                if ($scope.data.clientSide == "pp") {
-                    $scope.points.paymentype = "1";
->>>>>>> parent of 84aac52... ok
                 } else {
                     return 'buto3'
                 }
@@ -371,7 +267,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
                 var seenArray = {
                     IwtOfferId: $stateParams.IwtOfferId
                 }
-<<<<<<< HEAD
                 KpFactory.offerseen(seenArray).then(function (response) {
                     debugger;
                     if (response.data.status == "Success") {
@@ -381,23 +276,8 @@ angular.module('starter.controllers', ['Kp.Factory'])
 
                         alert(response.data.msg);
                     }
-=======
-                KpFactory.transaction(transactionArray).then(function (response) {
-                    debugger;                   
-                   
-                        $ionicLoading.hide();
-                        alert(response.data);
-                        if (response.data == "Transaction Successfull" || response.data == "TransactionSuccessFull")
-                        {
-                            $window.location.reload();
-                        } else
-                        {
-
-                        }                  
->>>>>>> parent of 84aac52... ok
 
                 });
-<<<<<<< HEAD
             }
             $scope.future = new Date($scope.iwtofferlists[0].OfferEndDate);
             $interval(function () {
@@ -443,10 +323,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
 
                             alert(response.data.msg);
                         }
-=======
-                
-                
->>>>>>> parent of 84aac52... ok
 
                     });
                 }
@@ -514,7 +390,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
             }
             $scope.cal = function (merlat, merlong) {
                 debugger;
-<<<<<<< HEAD
                 var R = 6371;
                 var dLat = toRad(merlat - $stateParams.Lat);
                 var dLon = toRad(merlong - $stateParams.Long);
@@ -531,38 +406,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
             $scope.open = function () {
 
                 $ionicModal.fromTemplateUrl('iwt-modal.html', {
-=======
-                $ionicLoading.show({
-                   template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                });
-                   $timeout(function () {
-                    $ionicLoading.hide();
-                     if (response.data.status == "Success") {
-                    //alert(response.data.msg);
-                    for (var i = 0; i < response.data.Data.length; i++) {
-                        $scope.promotions.push(response.data.Data[i])
-                    }
-                } else {
-
-                    alert(response.data.msg);
-
-                }
-                $ionicSlideBoxDelegate.update();
-
-                }, 3000);
-               
-            });
-            $scope.openupdate = function (cid, cname, isoffer, numoffer, sdate, edate, uoffer) {
-                $scope.upromotion.cid = cid;
-                $scope.upromotion.isoffer = isoffer;
-                $scope.upromotion.uoffer = uoffer;
-                $scope.upromotion.proname = cname;
-                $scope.upromotion.sdate = sdate;
-                $scope.upromotion.edate = edate;
-                $scope.upromotion.noof = numoffer;
-
-                $ionicModal.fromTemplateUrl('templates/promotionmodel.html', {
->>>>>>> parent of 84aac52... ok
                     scope: $scope
                 }).then(function (modal) {
                     $scope.modal = modal;
@@ -720,7 +563,6 @@ angular.module('starter.controllers', ['Kp.Factory'])
                         alert(response.data.msg);
                     }
 
-<<<<<<< HEAD
                 });
                 $scope.input.message = "";
             }
@@ -761,7 +603,3 @@ angular.module('starter.controllers', ['Kp.Factory'])
 
 
 
-=======
-        });
-        
->>>>>>> parent of 84aac52... ok
