@@ -3335,7 +3335,7 @@ body,
   color: #000;
   word-wrap: break-word;
   font-size: 14px;
-   font-family: 'Raleway', sans-serif;
+  font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 20px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
@@ -3371,7 +3371,7 @@ body.grade-c {
   overflow: hidden;
   margin-top: -1px; }
   .scroll-view.overflow-scroll {
-    position: relative; height: 100%; }
+    position: relative; }
   .scroll-view.scroll-x {
     overflow-x: scroll;
     overflow-y: hidden; }
@@ -3500,7 +3500,7 @@ ion-infinite-scroll {
 
 /* If you change these, change platform.scss as well */
 .has-header {
-  top: 55px; }
+  top: 44px; }
 
 .no-header {
   top: 0; }
@@ -3588,7 +3588,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #000;
   font-weight: 500;
-  font-family: 'Lato', sans-serif;
+  font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 1.2; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
   .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
@@ -3876,9 +3876,9 @@ a.subdued {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
-  height: 55px;
+  height: 44px;
   border-width: 0;
   border-style: solid;
   border-top: 1px solid transparent;
@@ -4000,13 +4000,13 @@ a.subdued {
     overflow: hidden;
     margin: 0 10px;
     min-width: 30px;
-    height: 54px;
+    height: 43px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 17px;
     font-weight: 500;
-    line-height: 55px; }
+    line-height: 44px; }
     .bar .title.title-left {
       text-align: left; }
     .bar .title.title-right {
@@ -5061,7 +5061,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   white-space: nowrap;
   font-weight: 400;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   opacity: 0.7; }
   .tab-item:hover {
     cursor: pointer; }
@@ -6272,7 +6272,7 @@ button.item.item-button-right {
 .item-thumbnail-left,
 .item-thumbnail-left .item-content {
   padding-top: 8px;
-  padding-left: 120px;
+  padding-left: 106px;
   min-height: 100px; }
   .item-thumbnail-left > img:first-child,
   .item-thumbnail-left .item-image,
@@ -7480,7 +7480,7 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Raleway', sans-serif;  }
+  font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; }
 
 .item-input {
   display: -webkit-box;
@@ -7671,10 +7671,10 @@ input[type="color"] {
   padding-top: 2px;
   padding-left: 0;
   height: 34px;
-  color: #fff;
+  color: #111;
   vertical-align: middle;
-  font-size: 18px;
-  line-height: 22px; }
+  font-size: 14px;
+  line-height: 16px; }
 
 .platform-ios input[type="datetime-local"],
 .platform-ios input[type="date"],
@@ -7788,8 +7788,8 @@ input[type="checkbox"][readonly] {
     border-color: #ddd; }
   .checkbox input:checked:before,
   .checkbox input:checked + .checkbox-icon:before {
-    background: #9572cb;
-    border-color: #9572cb; }
+    background: #387ef5;
+    border-color: #387ef5; }
 
 .checkbox-light input:before,
 .checkbox-light .checkbox-icon:before {
@@ -7886,8 +7886,8 @@ input[type="checkbox"][readonly] {
 .checkbox input,
 .checkbox-icon {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   display: block;
   border: 0;
   background: transparent;
@@ -7901,7 +7901,7 @@ input[type="checkbox"][readonly] {
     border-width: 1px;
     border-style: solid;
     border-radius: 28px;
-    /*background: #fff;*/
+    background: #fff;
     content: ' ';
     -webkit-transition: background-color 20ms ease-in-out;
     transition: background-color 20ms ease-in-out; }
@@ -7920,8 +7920,8 @@ input:checked + .checkbox-icon:before {
   top: 33%;
   left: 25%;
   display: table;
-  width: 22px;
-  height: 10px;
+  width: 14px;
+  height: 6px;
   border: 1px solid #fff;
   border-top: 0;
   border-right: 0;
