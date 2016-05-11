@@ -3295,9 +3295,15 @@ table {
   border-spacing: 0;
   border-collapse: collapse; }
 
+<<<<<<< HEAD
 /**
  * Scaffolding
  * --------------------------------------------------
+=======
+/**
+ * Scaffolding
+ * --------------------------------------------------
+>>>>>>> origin/master
  */
 *,
 *:before,
@@ -3382,9 +3388,15 @@ body.grade-c {
     overflow-x: scroll;
     overflow-y: scroll; }
 
+<<<<<<< HEAD
 /**
  * Scroll is the scroll view component available for complex and custom
  * scroll view functionality.
+=======
+/**
+ * Scroll is the scroll view component available for complex and custom
+ * scroll view functionality.
+>>>>>>> origin/master
  */
 .scroll {
   -webkit-user-select: none;
@@ -3398,9 +3410,15 @@ body.grade-c {
   -webkit-transform-origin: left top;
   transform-origin: left top; }
 
+<<<<<<< HEAD
 /**
  * Set ms-viewport to prevent MS "page squish" and allow fluid scrolling
  * https://msdn.microsoft.com/en-us/library/ie/hh869615(v=vs.85).aspx
+=======
+/**
+ * Set ms-viewport to prevent MS "page squish" and allow fluid scrolling
+ * https://msdn.microsoft.com/en-us/library/ie/hh869615(v=vs.85).aspx
+>>>>>>> origin/master
  */
 @-ms-viewport {
   width: device-width; }
@@ -3562,9 +3580,15 @@ ion-infinite-scroll {
   width: 100%;
   height: 100%; }
 
+<<<<<<< HEAD
 /**
  * Typography
  * --------------------------------------------------
+=======
+/**
+ * Typography
+ * --------------------------------------------------
+>>>>>>> origin/master
  */
 p {
   margin: 0 0 10px; }
@@ -3852,9 +3876,15 @@ a.subdued {
   .backdrop.active {
     opacity: 1; }
 
+<<<<<<< HEAD
 /**
  * Bar (Headers and Footers)
  * --------------------------------------------------
+=======
+/**
+ * Bar (Headers and Footers)
+ * --------------------------------------------------
+>>>>>>> origin/master
  */
 .bar {
   display: -webkit-box;
@@ -4308,10 +4338,17 @@ a.subdued {
 .nav-bar-tabs-top .bar {
   background-image: none; }
 
+<<<<<<< HEAD
 /**
  * Tabs
  * --------------------------------------------------
  * A navigation bar with any number of tab items supported.
+=======
+/**
+ * Tabs
+ * --------------------------------------------------
+ * A navigation bar with any number of tab items supported.
+>>>>>>> origin/master
  */
 .tabs {
   display: -webkit-box;
@@ -5325,10 +5362,17 @@ ion-tabs.tabs-color-active-dark .tab-item {
   .modal-open.loading-active .modal-backdrop {
     pointer-events: none; }
 
+<<<<<<< HEAD
 /**
  * Popovers
  * --------------------------------------------------
  * Popovers are independent views which float over content
+=======
+/**
+ * Popovers
+ * --------------------------------------------------
+ * Popovers are independent views which float over content
+>>>>>>> origin/master
  */
 .popover-backdrop {
   position: fixed;
@@ -6763,6 +6807,7 @@ button.item.item-button-right {
   -webkit-animation: none 0s;
   animation: none 0s; }
 
+<<<<<<< HEAD
 /**
  * Swiper 3.2.7
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -6776,6 +6821,21 @@ button.item.item-button-right {
  * Licensed under MIT
  *
  * Released on: December 7, 2015
+=======
+/**
+ * Swiper 3.2.7
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ *
+ * http://www.idangero.us/swiper/
+ *
+ * Copyright 2015, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under MIT
+ *
+ * Released on: December 7, 2015
+>>>>>>> origin/master
  */
 .swiper-container {
   margin: 0 auto;
@@ -7447,9 +7507,15 @@ ion-slides {
 .spinner-spiral.spinner-dark .stop2 {
   stop-color: #444; }
 
+<<<<<<< HEAD
 /**
  * Forms
  * --------------------------------------------------
+=======
+/**
+ * Forms
+ * --------------------------------------------------
+>>>>>>> origin/master
  */
 form {
   margin: 0 0 1.42857; }
@@ -7774,9 +7840,15 @@ input[type="radio"][readonly],
 input[type="checkbox"][readonly] {
   background-color: transparent; }
 
+<<<<<<< HEAD
 /**
  * Checkbox
  * --------------------------------------------------
+=======
+/**
+ * Checkbox
+ * --------------------------------------------------
+>>>>>>> origin/master
  */
 .checkbox {
   position: relative;
@@ -8231,9 +8303,15 @@ input:checked + .checkbox-icon:after {
     /* show the checkmark icon when its checked */
     visibility: visible; }
 
+<<<<<<< HEAD
 /**
  * Range
  * --------------------------------------------------
+=======
+/**
+ * Range
+ * --------------------------------------------------
+>>>>>>> origin/master
  */
 .range input {
   display: inline-block;
@@ -8251,6 +8329,7 @@ input:checked + .checkbox-icon:after {
   background-size: 99% 2px;
   background-repeat: no-repeat;
   -webkit-appearance: none;
+<<<<<<< HEAD
   /*
    &::-ms-track{
      background: transparent;
@@ -8274,6 +8353,31 @@ input:checked + .checkbox-icon:after {
      height: $range-track-height;
      background:$range-default-track-bg;
    }
+=======
+  /*
+   &::-ms-track{
+     background: transparent;
+     border-color: transparent;
+     border-width: 11px 0 16px;
+     color:transparent;
+     margin-top:20px;
+   }
+   &::-ms-thumb {
+     width: $range-slider-width;
+     height: $range-slider-height;
+     border-radius: $range-slider-border-radius;
+     background-color: $toggle-handle-off-bg-color;
+     border-color:$toggle-handle-off-bg-color;
+     box-shadow: $range-slider-box-shadow;
+     margin-left:1px;
+     margin-right:1px;
+     outline:none;
+   }
+   &::-ms-fill-upper {
+     height: $range-track-height;
+     background:$range-default-track-bg;
+   }
+>>>>>>> origin/master
    */ }
   .range input::-moz-focus-outer {
     /* hide the focus outline in Firefox */
@@ -8886,9 +8990,15 @@ a.button {
   cursor: default !important;
   pointer-events: none; }
 
+<<<<<<< HEAD
 /**
  * Button Bar
  * --------------------------------------------------
+=======
+/**
+ * Button Bar
+ * --------------------------------------------------
+>>>>>>> origin/master
  */
 .button-bar {
   display: -webkit-box;
@@ -8950,6 +9060,7 @@ a.button {
 .button-bar > .button-small .icon:before {
   line-height: 28px; }
 
+<<<<<<< HEAD
 /**
  * Grid
  * --------------------------------------------------
@@ -8958,6 +9069,16 @@ a.button {
  * By default each .col within a .row will evenly take up
  * available width, and the height of each .col with take
  * up the height of the tallest .col in the same .row.
+=======
+/**
+ * Grid
+ * --------------------------------------------------
+ * Using flexbox for the grid, inspired by Philip Walton:
+ * http://philipwalton.github.io/solved-by-flexbox/demos/grids/
+ * By default each .col within a .row will evenly take up
+ * available width, and the height of each .col with take
+ * up the height of the tallest .col in the same .row.
+>>>>>>> origin/master
  */
 .row {
   display: -webkit-box;
