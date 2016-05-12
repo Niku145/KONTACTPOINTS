@@ -1,31 +1,61 @@
 <ion-view>
     <ion-content>
-         <div class="log" align="center"><div></div></div>
-        <div class="logbg" align="center">
-            <div class="logbg2">
-                <div class="inp">                   
-                    <div class="bg11" align="center">
-                        <div class="mrg02"><label class="item item-input">                            
-                                <input type="text" placeholder="First Name" ng-model="getmail.mailid">
-                            </label>
-                        </div>
+        <div class="ionic-body">	
+            <div class="content loginpage-wrap">
+                <div class="logo">
+                    <img src="images/logo.png" alt="">
+                </div>
+                <div class="list login-bg2">
+                    <h6></h6>
+                    <div class="list">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Firstname">
+                        </label>
                     </div>
-                     <div class="bg11" align="center">
-                       <label class="item item-input">                            
-                                <input type="text" placeholder="Last Name" ng-model="getmail.mailid">
-                            </label>
-                      
+                    <div class="list">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Lastname">
+                        </label>
                     </div>
-                    <div class="mrg3">
-                        <div class="hi">
-                           
-                                <div class="send"><img src="images/send_11.png" class="bg01" ng-click="getpassword()"></div>
-                        </div>
+                    <div class="list">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Email Address">
+                        </label>
                     </div>
-                    <div></div>
-                </div>                    
-            </div>                    
+                    <div class="list2">
+
+                        <label class="item item-select">
+
+                            <select>
+                                <option selected>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="list2">
+
+                        <label class="item item-select">
+
+                            <select>
+                                <option selected>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="list">
+                        <label class="item item-input-post">
+                            <input type="text" placeholder="Postcode">
+                        </label>
+                    </div>
+                    <div class="padding2">
+                        <button class="sign-in-btn2" ng-click="signin()">Sign In</button>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
-        
     </ion-content>
 </ion-view>
