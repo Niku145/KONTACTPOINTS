@@ -1,61 +1,88 @@
 <ion-view>
     <ion-content>
-        <div class="ionic-body">	
+        <div class="ionic-body">
+
+
             <div class="content loginpage-wrap">
+
                 <div class="logo">
                     <img src="images/logo.png" alt="">
                 </div>
-                <div class="list login-bg2">
-                    <h6></h6>
-                    <div class="list">
-                        <label class="item item-input">
-                            <input type="text" placeholder="Firstname">
-                        </label>
-                    </div>
-                    <div class="list">
-                        <label class="item item-input">
-                            <input type="text" placeholder="Lastname">
-                        </label>
-                    </div>
-                    <div class="list">
-                        <label class="item item-input">
-                            <input type="text" placeholder="Email Address">
-                        </label>
-                    </div>
-                    <div class="list2">
+                <div>Sign up</div>
+                <div class="content">
+                    <div class="list login-bg">
+                        <h6></h6>
 
-                        <label class="item item-select">
-
-                            <select>
-                                <option selected>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="list2">
-
-                        <label class="item item-select">
-
-                            <select>
-                                <option selected>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class="list">
-                        <label class="item item-input-post">
-                            <input type="text" placeholder="Postcode">
-                        </label>
-                    </div>
-                    <div class="padding2">
-                        <button class="sign-in-btn2" ng-click="signin()">Sign In</button>
-                    </div>
+                        <div class="row"><div class="col"><div class="list">
+                                    <div class="newheading">Firstname</div>
+                                    <label class="item item-input">
+                                        <input type="text">
+                                    </label>
+                                </div></div></div>
+                        <div class="row"><div class="col"><div class="list">
+                                    <div class="newheading">Lastname</div>
+                                    <label class="item item-input">
+                                        <input type="text">
+                                    </label>
+                                </div></div></div>
+                        <div class="row"><div class="col"><div class="list">
+                                    <div class="newheading">Email Address</div>
+                                    <label class="item item-input">
+                                        <input type="text">
+                                    </label>
+                                </div></div></div>
 
 
+                        <div class="row">
+                            <div class="col-50 selectField">
+                                <div class="newheading">Gender</div>
+                                <div><label class="item item-select">
+
+                                        <select>
+                                            <option selected>Male</option>
+                                            <option>Female</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </label></div>
+                            </div>
+                            <div class="col-50 selectField">
+                                <div class="newheading">Year of Birth</div>
+                                <div><label class="item item-select">
+
+                                        <select>
+                                            <option selected>YOB</option>
+                                            <option>1991</option>
+                                            <option>1992</option>
+                                            <option>1993</option>
+                                            <option>1994</option>
+                                            <option>1995</option>
+                                            <option>1996</option>
+                                            <option>1997</option>
+                                            <option>1998</option>
+                                        </select>
+                                    </label></div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="list">
+                                    <div class="col-33 col-offset-33 newheading">Postcode</div>
+                                    <label class="item item-input" style="width:95px; margin:auto; padding-left:0px;">
+                                        <input type="text">
+                                    </label>
+                                </div></div></div>
+                        <div class="padding2">
+                            <button class="sign-in-btn" ng-click="signin()">Sign up</button>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
+
         </div>
     </ion-content>
 </ion-view>

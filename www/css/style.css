@@ -15,42 +15,44 @@ a{ transition:all 300ms ease-in-out; -moz-transition:all 300ms ease-in-out; -web
 
 
 /* back icon */
-.item-input .icon{ min-width:40px;} 
+.item-input .icon{ min-width:50px;} 
 .ion-user{ background: url(../images/user-icon.png) no-repeat; width: 33px; height: 33px; content: ""; display: inline-block; }
+.ion-email{ background: url(../images/email.png) no-repeat; background-size:70% 80%; background-position-y: 3px; width: 33px; height: 25px; content: ""; display: inline-block; }
 .ion-password{ background: url(../images/password-icon.png) no-repeat; width: 31px; height: 33px; content: ""; display: inline-block; }
-.ion-email2{ background: url(../images/email.png) no-repeat; width: 33px; height: 33px; content: ""; display: inline-block; }
+.newheading{text-align:left; color:#fff; padding-left:10px; font-size:16px; padding-bottom:5px;}
 .logo{ margin:30px auto}
 .logo img{ max-width:150px;}
 .loginpage-wrap{ text-align:center;}
 .login-bg{ margin:0 auto; background:url(../images/login-bg.png) no-repeat; background-size:cover; width:600px; height:620px; padding:70px 80px 0;}
-.login-bg2{ margin:0 auto; background:url(../images/login-bg.png) no-repeat; background-size:cover; width:600px; height:620px; padding:70px 80px 0;}
-.login-bg h6{ color:#fff; font-size:23px; font-weight:300; margin-bottom:55px; margin-top:25px;}
-.login-bg .list .item{ box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;}
-.login-bg .list .item input{ height:48px;} 
-.login-bg2 h6{ color:#fff; font-size:23px; font-weight:300; margin-bottom:55px; margin-top:25px;}
-.login-bg2 .list .item{ box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;}
-.login-bg2 .list .item input{ height:48px;} 
-
-
-.login-bg .list2 .item{ box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;}
-.login-bg .list2 .item input{ height:48px;} 
-.login-bg2 h6{ color:#fff; font-size:23px; font-weight:300; margin-bottom:55px; margin-top:25px;}
-.login-bg2 .list2 .item{ box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;}
-.login-bg2 .list2 .item input{ height:48px;} 
-
-.login-bg .list3 .item{ box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;}
-.login-bg .list3 .item input{ height:48px;} 
-.login-bg2 h6{ color:#fff; font-size:23px; font-weight:300; margin-bottom:55px; margin-top:25px;}
-.login-bg2 .list3 .item{ box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;}
-.login-bg2 .list3 .item input{ height:48px;} 
-
-
-.sign-in-btn{ background:url(../images/signin-btn.png) no-repeat; border:none; color:#fff; padding:15px 0 25px; width:170px; text-transform: uppercase; text-align:center; font-weight:600; font-size:16px;   }
-.sign-in-btn2{ background:url(../images/signin-btn.png) no-repeat; border:none; color:#fff; padding:15px 0 25px; width:170px; text-transform: uppercase; text-align:center; font-weight:600; font-size:16px;   }
-
-.forgot-link{ display:block; margin-top:15px; color:#fff; text-transform: uppercase; font-weight:600; font-size:16px;  } 
+.login-bg h6{ color:#fff; font-size:23px; font-weight:300; margin-bottom:55px; margin-top:15px;}
+.login-bg .list .item, .login-bg .list2 .item select{ color:#FFF; box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;}
+.login-bg .list .item input{height:25px;} 
+.sign-in-btn{ background:url(../images/signin-btn.png) no-repeat; border:none; color:#fff; padding:15px 0 25px; width:170px; text-transform: uppercase; text-align:center; font-weight:300; font-size:16px; background-size:100% 100%;}
+.forgot-link{ display:block; margin-top:15px; color:#fff; text-transform: uppercase; font-weight:300; font-size:16px;  } 
 .signup-link{ color:#fff; font-size:15px; margin-top:35px; color:#bababa; display:block; text-transform: uppercase; }
 .signup-link a{ color:#319e01;}
+
+.item-select{
+	
+}
+
+.selectField{}
+
+
+.formRow span{text-align:left; color:#fff; padding-left:10px; font-size:16px; padding-bottom:10px;}
+
+
+.inputField label input{
+color:#FFF; box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;
+}
+
+
+.selectField label select{
+color:#FFF; box-shadow:inset 7px 0 3px -4px #414141,inset -8px 0 3px -4px #414141; border-color:#353535;  background:#242323; border-radius:8px;
+}
+
+
+
 /* media Query    */
 
 @media (min-width: 1200px) {
@@ -62,60 +64,45 @@ a{ transition:all 300ms ease-in-out; -moz-transition:all 300ms ease-in-out; -web
 }
 
 @media (min-width: 768px) and (max-width:992px) {
-	.login-bg .list3 .item input{ height:28px; font-size:14px;}
-	.login-bg .list3 { margin-bottom:50px; float:left; margin-top:30px;}
+	
 }
 
 
 @media (max-width: 620px) {
-	.login-bg{ width:405px; height:420px; padding:30px 70px 0;  }
+	.login-bg{ width:405px; height:420px; padding:60px 70px 0;  }
 	.login-bg h6{ font-size:18px; margin-bottom:15px;}
-	.login-bg .list .item input{ height:36px;}
-	.login-bg .list { margin-bottom:10px;}
-	.login-bg .list3 { margin-bottom:50px; margin-top:30px;} 
-.ion-email2{ width:20px; height: 25px; background-size: 90%; margin-top:2px; margin-right:5px;}
-	.sign-in-btn{ background-size:100%; padding:10px 0 15px; font-size: 14px; width:125px;}
+	.login-bg .list .item input{ height:25px;}
+	.login-bg .list { margin-bottom:0px;}
+	.ion-email{ background: url(../images/email.png) no-repeat; background-size:60% 70%; background-position-y: 3px; width: 33px; height: 25px; content: ""; display: inline-block; }
+	.sign-in-btn{ background-size:100%; padding:12px 0 15px; font-size: 14px; width:125px;}
 	.forgot-link{ font-size: 15px;}
 	.signup-link{ margin-top: 25px;}
-	.login-bg2{ width:405px; height:420px; padding:54px 70px 0;  }
-	.login-bg2 h6{ font-size:18px; margin-bottom:15px;}
-	.login-bg2 .list .item input{ height:36px;}
-	.login-bg2 .list { margin-bottom:10px;}
-
-	.sign-in-btn{ background-size:100%; padding:10px 0 15px; font-size: 14px; width:125px;}
-	.forgot-link{ font-size: 15px;}
-	.signup-link{ margin-top: 25px;}
+	.newheading{font-size:14px; padding-bottom:0;}
+	.item-select{ padding:31px 32px 5px 84px;}
+	.item-select select{padding:0 62px 0 16px; width:112px;}
+	.col{padding:0;} .item-input{padding:0px 0px 0px 10px; font-size:12px;} 
 }
 
 @media (max-width: 430px) {
 	.logo img{ max-width:100px;}
 	.login-bg{ width:310px; height:320px; padding:30px 40px 0;  }
 	.login-bg h6{ font-size:14px; margin-bottom:10px;}
-	.login-bg .list .item input{ height:28px; font-size:14px;}
-	.login-bg .list { margin-bottom:10px;}
-	.login-bg .list2 .item input{ height:28px; font-size:14px;}
-	.login-bg .list2 { margin-bottom:10px; float:left;}
-	.login-bg .list3 .item input{ height:28px; font-size:14px;}
-	.login-bg .list3 { margin-bottom:50px; float:left; margin-top:30px;}
-
-	.sign-in-btn{ background-size:100%; padding:10px 0 15px; font-size: 14px; width:125px;}
-	.sign-in-btn2{ background-size:100%; padding:5px 0 15px; font-size: 14px; width:100px;}
-	.forgot-link{ font-size: 12px; margin-top: 5px;  }
-	.signup-link{ margin-top: 5px;  font-size: 12px;}
+	.login-bg .list .item input{ height:25px; font-size:12px; padding:0px 0px 0px 10px;}
+	.login-bg .list { margin-bottom:5px;}
+	.newheading{text-align:left; color:#fff; padding-left:10px; font-size:12px !important; padding-bottom:0px;}
+	.sign-in-btn{ background-size:100%; padding:10px 0 15px; font-size: 11px; width:125px;}
+	.forgot-link{ font-size:10px; margin-top: 0px;  }
+	.signup-link{ margin-top:0px;  font-size: 10px;}
+	.ion-email{ background: url(../images/email.png) no-repeat; background-size:90% 60%; background-position-y: 3px; width: 33px; height: 25px; content: ""; display: inline-block; }
 	.login-bg .padding { padding:0;}
-	.login-bg .padding2 { padding:0;}
-
-	.item-input .icon{ min-width:14px; margin-right:6px;}
+	.sign-in-btn{background-size:70% 70% !important; background-position:17px 7px;}
+	.item-input .icon{ min-width:14px; margin-right:6px; font-size:12px;}
+	.item-select{ padding:24px 33px 5px 84px; font-size:12px;}
 	.ion-user{ width:20px; height: 20px; background-size: 100%}
 	.ion-password{ width:20px; height:22px; background-size: 100%}
-	.ion-email2{ width:25px; height: 25px; background-size: 100%; margin-top:10px;}
-	.logo img{ max-width:100px;}
-	.login-bg2{ width:353px; height:363px; padding:30px 55px 0;  }
-	.login-bg2 h6{ font-size:14px; margin-bottom:10px;}
-	.login-bg2 .list .item input{ height:28px; font-size:14px;}
-	.login-bg2 .list { margin-bottom:10px;}
-	.login-bg2 .list2 .item input{ height:28px; font-size:14px;}
-	.login-bg2 .list2 { margin-bottom:10px; float:left; margin-right:10px;}
-	.login-bg2 .list3 .item input{ height:28px; font-size:14px;}
-	.login-bg2 .list3 { margin-bottom:10px; float:left; margin-right:10px;}
+	.selectField label select{height:28px; font-size:12px;}
+	.item-select select {
+    padding: 0 58px 0 0px;
+    width: 107px;}
+
 }
