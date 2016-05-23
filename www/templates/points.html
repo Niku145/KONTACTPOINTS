@@ -1,0 +1,168 @@
+<ion-view view-title="Points">
+    <ion-content>
+        <table style="width:100%">
+            <tr>
+                <td colspan="5"> 
+                    <label class="item item-input" style="    border: none;">
+                        <span class="input-label">User Id :</span>
+                        <input type="text" placeholder="Enter User ID" ng-model="points.userid" tabindex="0" style="    height: 44px;
+                               padding: 0px;
+                               /* border-left: #696565; */
+                               border-style: solid;
+                               border-width: 1px;
+                               border-color: #B5AFAF;margin-right:4%" >
+                    </label>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td colspan="5"><table style="width:100%"><tr>
+
+                            <td>
+                                <button class="button button-block button-positive" ng-click='scan()' style="  min-height: 41px !important;
+                                        width: 45%;
+                                        margin-left: 3%;
+                                        margin-right: 4%;
+                                        font-size: 15px;
+                                        margin-top: 8px;
+                                        margin-bottom: 4px;
+                                        padding: 0px !important;
+                                        float: left;
+                                        " ><b style="padding-bottom:30px">Scan</b></button>
+                                <button class="button button-block button-positive" style="    min-height: 30px !important;
+                                        width: 45%;
+                                        margin-left: 0%;
+                                        margin-right: 0%;
+                                        font-size: 30px;
+                                        margin-top: 8px;
+                                        margin-bottom: 4px;
+                                        padding-bottom: 0px;
+                                        float: left;clear: none;" ng-click="consumerdata()"><b style="padding-bottom:30px">+</b></button>
+                            </td>
+                        </tr></table></td>
+
+
+            </tr>
+            <tr style="    border-bottom-color: black;
+                border-bottom-style: inset;
+                border-bottom-width: 2px;">
+                <td  colspan="5"  style="padding-bottom:5px;font-size:14px;text-align:center">
+                    <span style="text-align:center"> Consumer Bonus Amount Balance Is:</span>                 
+
+                    <img ng-src="{{imageurl}}" alt="" style="height:10px"/>  {{bonusamt}}
+                </td>
+            </tr>
+            <tr style="    height: 15px;"><td colspan="5"></td></tr>
+
+            <tr>
+                <td colspan="3" style="vertical-align:middle">
+                    <span class="input-label" style="width:100%;font-size:15px">  Payment Amount</span>  
+                </td>
+                <td colspan="2">
+                    <input type="text" ng-model="points.payamt"  style="border:2px inset silver;width:88%;background-color:white;margin-bottom: 3px;border-style: solid;
+                           border-width: 1px;
+                           border-color: #B5AFAF;" ng-change="netamount(points.payamt)">
+                </td>
+
+            </tr>     
+            <tr>
+                <td style="vertical-align:middle" colspan="3">
+                    <span class="input-label" style="width:100%;font-size:15px">Bonus Amount </span>
+                </td>
+
+                <td colspan="2">
+                    <input type="text" ng-model="points.bonus"style="border:2px inset silver;width:88%;background-color:#E0DDD8;margin-bottom: 3px;border-style: solid;
+                           border-width: 1px;
+                           border-color: #B5AFAF;" ng-disabled="true">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="vertical-align:middle">
+                    <span class="input-label" style="width:100%;font-size:15px">  Net Amount</span>  
+                </td>
+                <td colspan="2">
+                    <input type="text" ng-model="points.netamt"  style="border:2px inset silver;width:88%;background-color:#E0DDD8;margin-bottom: 3px;border-style: solid;
+                           border-width: 1px;
+                           border-color: #B5AFAF;" ng-disabled="true">
+                </td>
+
+            </tr>          
+
+            <tr>
+                <td  colspan="5" style="vertical-align:middle;width: " >
+                    <span class="input-label" style="padding-bottom:50px;width:100%;font-size:15px;font-weight:bold;    margin-bottom: 6px;">Payment Mode : </span>
+                </td>
+
+            </tr>   
+            <tr>
+                <td colspan="5" style="vertical-align:middle;padding-bottom: 5px">
+                    <!--            <ion-list>
+                                    <ion-radio ng-model="points.choice" ng-value="A" ng-checked="points.choice">Other Mode Payment</ion-radio>
+                                    <ion-radio ng-model="points.choice" ng-value="B" ng-checked="points.choice" >Part Payment</ion-radio>
+                                    <ion-radio ng-model="points.choice" ng-value="c"  ng-checked="points.choice">Full Point Payment</ion-radio>
+                                </ion-list>-->
+            <ion-radio ng-repeat="item in paymentoption"
+                       ng-value="item.value"
+                       ng-change="visbility(item.value)"
+                       ng-model="data.clientSide" style="    float: left;
+                       font-size: 12px;width:33.33%;font-weight: bold;">
+                {{ item.text}}
+            </ion-radio>
+            </td>
+            </tr>   
+            <tr>
+                <td  colspan="5" style="vertical-align:middle;width: " >
+                    <span class="input-label" style="padding-bottom:50px;width:100%;font-size:15px;font-weight:bold;    margin-bottom: 6px;">Payment Amount : </span>
+                </td>
+
+            </tr>  
+            <tr style="margin-top:20px">
+
+                <!--                <td style="vertical-align:middle" colspan="2">
+                                    <span style="width: 100%">Payment Amount:</span>
+                                </td>-->
+                <td colspan="5" style="padding-bottom: 5px">
+                    <input type="text"  style="width:33%;height:50px;border:3px inset silver;float:left;background-color:#E0DDD8; text-overflow: ellipsis;   font-size: 10px;
+                           font-weight: bold;" ng-disabled="true" ng-model="points.amtbalance" placeholder="Consumer Balance"/>
+                    <input type="text" class="{{partpayclass1}}" style="width:33%;height:50px;border:3px inset silver;float:left;text-overflow: ellipsis;    font-size: 10px;
+                           font-weight: bold;" ng-disabled="show1 == 0" ng-model="points.pointamt"  ng-change="amount(points.pointamt)" placeholder="Part Payment"/>
+                    <input type="text" style="width:33%;height:50px;border:3px inset silver;float:left;background-color:#E0DDD8;text-overflow: ellipsis;    font-size: 10px;
+                           font-weight: bold;" ng-disabled="true" ng-model="points.amount" placeholder="Remaining Payment"/>
+                    <!--                    <input type="text" style="width:25%;height:50px;border:3px inset silver;float:left;;background-color:#E0DDD8" ng-disabled="true"/>-->
+                </td>
+            </tr>  
+            <tr>
+                <td  colspan="5" style="vertical-align:middle;width: " >
+                    <span class="input-label" style="padding-bottom:50px;width:100%;font-size:15px;font-weight:bold;    margin-bottom: 6px;">Consumer Pin : </span>
+                </td>
+
+            </tr>  
+            <tr style="margin-top:20px" >
+                <!--                <td style="vertical-align:middle" colspan="2">
+                                    <span style="width: 100%">Pin :</span>
+                                </td>-->
+                <td colspan="5">
+                    <input type="text" name="pin1" maxlength="1" id="p1" style="width:25%;height:50px;border:3px inset silver;float:left" class="{{partpayclass}}" ng-model="points.pin1" ng-disabled="show == 0" ng-keyup="changefocus1('p2');"/>              
+                    <input type="text" name="pin2" maxlength="1" id="p2" style="width:25%;height:50px;border:3px inset silver;float:left" class="{{partpayclass}}" ng-model="points.pin2" ng-disabled="show == 0" ng-keyup="changefocus1('p3');"/>                
+                    <input type="text" name="pin3" maxlength="1" id="p3" style="width:25%;height:50px;border:3px inset silver;float:left" class="{{partpayclass}}" ng-model="points.pin3" ng-disabled="show == 0" ng-keyup="changefocus1('p4');"/>               
+                    <input type="text" name="pin4" maxlength="1" id="p4" style="width:25%;height:50px;border:3px inset silver;float:left" class="{{partpayclass}}" ng-model="points.pin4" ng-disabled="show == 0" />
+                </td>
+            </tr>
+
+            <tr>
+
+                <td colspan="5">
+                    <button class="button button-block button-positive" style="" ng-click="transaction()">Enter</button>
+
+
+                    <!--                    <button class="button button-block button-positive" style=" " ng-click="clear()">Clear</button>-->
+
+
+                </td>
+
+
+            </tr>         
+        </table>     
+    </ion-content>
+</ion-view>

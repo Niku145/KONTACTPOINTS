@@ -1,0 +1,45 @@
+﻿<ion-view  view-title="My Invite" cache-view="false" style="color:white !important;"> 
+
+
+    <ion-content>
+        <div class="list list-inset">
+            <label class="item item-input" style="border-color:#337AB7;border-width:2px;">
+                <input type="text" ng-model="InviteData.Email" placeholder="Email"></input>
+            </label>
+              <label class="item item-input" style="border-color:#337AB7;border-width:2px;">
+                <input type="text" ng-model="InviteData.FirstName" placeholder="FirstName"></input>
+            </label>
+              <label class="item item-input" style="border-color:#337AB7;border-width:2px;">
+                <input type="text" ng-model="InviteData.LastName" placeholder="LastName"></input>
+            </label>
+            <label class="item item-input" style="border-color:#337AB7;border-width:2px;">
+                <textarea type="text" ng-model="InviteData.Description" placeholder="Description" style=" height: 175px;"></textarea>
+            </label>
+            <br>
+            <div style="" align="center">              
+                <button class="button icon-right ion-chevron-right button-positive" ng-click="doSubmit()">SendInvite</button>
+            </div>
+        </div>
+
+<!--        //Grid
+        -->
+        
+        <div class="row">
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Email</div>
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Status</div>
+           
+        </div>
+
+        <div class="row">
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.GroupName}}</div>
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.Description}}</div>          
+
+        </div>
+    </ion-content>
+    
+          
+    
+   
+</ion-view>

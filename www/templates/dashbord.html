@@ -1,0 +1,40 @@
+﻿<ion-view view-title="My Dashboard" cache-view="false" style="color: white !important;"> 
+
+
+    <ion-content>
+
+        <div class="row" style="margin-top:10%">
+            <div class="col" style="border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">My Points Balance</div>  
+        </div>
+        <div class="row" >
+            <div class="col" style="font-weight:bold;font-size:50px;    line-height: 90px;border: 1px solid #ddd;color: #000 !important;height:100px;text-align:center;vertical-align:middle;text-anchor:middle">{{PointBalance}}</div>   
+
+
+        </div>
+        <div>
+            <button class="button  button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:40%;float:left;clear:none;margin-left:5%"  ng-click="gift()" >
+                Gift   
+            </button>
+            <button class="button  button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:40%;float:left;clear:none;margin-left:5%;margin-right:5%;" ng-click="id()" >
+                Id  
+            </button>
+            <button class="button  button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:40%;float:left;clear:none;margin-left:5%" ng-click="statement()" >
+                Statement 
+            </button>
+            <button class="button  button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:40%;float:left;clear:none;margin-left:5%;margin-right:5%;" ng-click="bonus()" >
+                Bonus  
+            </button>
+            <!--            <button class="button  button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:70%;float:left;clear:none;margin-left:15%" ng-click="change()" >
+                            
+                            <image class="icon" ng-src="img/barcode.jpg" style="height:40px">
+                            Get User ID
+                        </button>
+                        <button class="button   button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:70%;float:left;clear:none;margin-left: 15%" >
+                            <image class="icon" ng-src="img/barcode.jpg" style="height:40px">
+                            Get User Pincode
+                        </button>-->
+        </div>
+
+    </ion-content>
+</ion-view>

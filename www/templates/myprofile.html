@@ -1,0 +1,180 @@
+﻿<ion-view  view-title="My Profile" cache-view="false" style="color:white !important;"> 
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="openPassword($event)">
+            Change Password
+        </button>
+        <button class="button" ng-click="openPopover($event)">
+            Change pin
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content>
+
+        <div class="list">
+            <!--            <label class="item item-input">
+                            <span class="input-label">Profile Picture</span>
+                            <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}"  style="border-radius:50px ;height:100px;width: 100px">
+                            <img ng-show="imgURI === undefined" ng-src="img/AddImage.png"  style="clear: both;border-radius:50px ;height:100px;width: 100px">
+                            <br>
+                            <button class="button button-outline" ng-click="takePicture()" style="margin-left: -89px;width: 80px;border:none">
+            
+                            </button>
+                        </label>-->
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text" ng-model="ProfileData.userName" placeholder="Enter UserName">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="ProfileData.Password" placeholder="Enter Password"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="email" ng-model="ProfileData.Email" placeholder="Enter Email Address"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">FirstName</span>
+                <input type="text" ng-model="ProfileData.FirstName" placeholder="Enter FirstName">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">LastName</span>
+                <input type="text" ng-model="ProfileData.LastName" placeholder="Enter LastName">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">City</span>
+                <input type="text" ng-model="ProfileData.City" placeholder="Enter City"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Address</span>
+                <textarea ng-model="ProfileData.Address" placeholder="Enter Address"></textarea>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Website</span>
+                <input type="text" ng-model="ProfileData.website" placeholder="Enter Website"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Zipcode</span>
+                <input type="text" ng-model="ProfileData.zipcode" placeholder="Enter zipcode"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Phone</span>
+                <input type="text" ng-model="ProfileData.mobile" placeholder="Enter Phone"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">BirthYear</span>
+                <input type="text" ng-model="ProfileData.BirthYear" placeholder="Enter BirthYear"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Pin</span>
+                <input type="text" ng-model="ProfileData.pin" placeholder="Enter Pin"/>
+            </label>
+            <label class="item">
+                <button ng-click="UpdateProfile()" class="button button-block button-positive"  style="color: #fff;background-color: #286090;border-color: #204d74;">
+                    Update
+                </button>
+
+
+            </label>
+        </div>
+        <script id="my-popover.html" type="text/ng-template">
+            <ion-popover-view style="height:50%;width:80%">
+            <ion-content>
+            <input type="password" ng-model="pin.old" style="height: 44px;
+            padding: 0px;               
+            border-style: solid;
+            border-width: 1px;
+            border-color: #B5AFAF;margin-left:25%;float:left;width:50%;margin-top: 13px" placeholder="Type old pin" ng-change="oldchng()">     
+            <label style="float:left;margin-top: 13px;color: red;" ng-show="f1==0">*</label>
+            <label style="float:left;color: red;margin-left:61%" ng-show="show==1">Wrong pin</label>
+            <input type="password" ng-model="pin.new" style="height: 44px;
+            padding: 0px;               
+            border-style: solid;
+            border-width: 1px;
+            border-color: #B5AFAF;margin-left:25%;float:left;width:50%;margin-top: 10px" placeholder="Type New pin" ng-change="newchng()">
+            <label style="float:left;margin-top: 13px;color: red;" ng-show="f2==0">*</label>
+            <input type="password" ng-model="pin.new" style="height: 44px;
+            padding: 0px;               
+            border-style: solid;
+            border-width: 1px;
+            border-color: #B5AFAF;margin-left:25%;float:left;width:50%;margin-top: 13px" placeholder="Retype New pin">
+            <label style="float:left;margin-top: 13px;color: red;" ng-show="f3==0">*</label>
+            <button class="button  button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:80%;float:left;clear:none;margin-left:10%" ng-click="updatepin()" >
+            Change Pin
+            </button>
+            <br/>
+
+            <a style="float:left; margin-left: 44%" ng-click="forgot()">Forgot Pin</a>
+            </ion-content>
+
+            </ion-popover-view>
+
+        </script>
+        <script id="getpin.html" type="text/ng-template">
+            <ion-modal-view>
+    <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
+        <h1 class="title" style="color:#fff;text-align: center;    font-size: 121%;">Forgot Pin</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()" style="color:#fff;text-align: center;    font-size: 100%;">
+                <i class="icon ion-close-circled"></i>
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="getpin()">
+            <div  style="border-width:1px 1px 1px 1px;border-style:solid;border-color:#ddd; height:70px;">
+                <input type="text" ng-model="pin.mailid" style="height: 44px;
+                       padding: 0px;               
+                       border-style: solid;
+                       border-width: 1px;
+                       border-color: #B5AFAF;margin-left:15%;width:70%;margin-top: 5px" placeholder="Enter EmailId" >
+            </div>  
+
+
+
+            <!--          <button class="button button-block button-positive" type="submit" style="    color: #fff;
+                background-color: #286090;
+                border-color: #204d74;">Log in</button>-->
+
+
+            <button class="button  button-block button-positive"  style="width:80%;margin-left:10%; background-color: #286090;border-color: #204d74;">
+                Sumbit
+            </button>
+        </form>
+    </ion-content>
+</ion-modal-view>
+  
+        </script>
+        <script id="changepassword.html" type="text/ng-template">
+            <ion-popover-view style="height:50%;width:80%">
+            <ion-content>
+            <input type="password" ng-model="password.old" style="height: 44px;
+            padding: 0px;               
+            border-style: solid;
+            border-width: 1px;
+            border-color: #B5AFAF;margin-left:25%;float:left;width:50%;margin-top: 13px" placeholder="Type old password" ng-change="oldpass()">     
+            <label style="float:left;margin-top: 13px;color: red;" ng-show="p1==0">*</label>
+            <label style="float:left;color: red;margin-left:61%" ng-show="pshow==1">Wrong password</label>
+            <input type="password" ng-model="password.new" style="height: 44px;
+            padding: 0px;               
+            border-style: solid;
+            border-width: 1px;
+            border-color: #B5AFAF;margin-left:25%;float:left;width:50%;margin-top: 10px" placeholder="Type New password" ng-change="newpass()">
+            <label style="float:left;margin-top: 13px;color: red;" ng-show="p2==0">*</label>
+            <input type="password" ng-model="password.new" style="height: 44px;
+            padding: 0px;               
+            border-style: solid;
+            border-width: 1px;
+            border-color: #B5AFAF;margin-left:25%;float:left;width:50%;margin-top: 13px" placeholder="Retype New password">
+            <label style="float:left;margin-top: 13px;color: red;" ng-show="p3==0">*</label>
+            <button class="button  button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:80%;float:left;clear:none;margin-left:10%" ng-click="updatepassword()" >
+            Change Password
+            </button>
+           
+            </ion-content>
+
+            </ion-popover-view>
+
+        </script>
+    </ion-content>
+</ion-view>

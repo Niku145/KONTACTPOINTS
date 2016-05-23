@@ -1,0 +1,166 @@
+﻿<ion-view view-title="Reward Wallet">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="gift()">
+            <i class="ion ion-arrow-up-a"></i>
+        </button>
+        <button class="button" ng-click="filter()">
+            <i class="ion ion-search"></i>
+        </button>
+    </ion-nav-buttons>
+    <script id="my-modal.html" type="text/ng-template">
+        <ion-modal-view>
+        <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
+        <h1 class="title" style="color:#fff;text-align: center;    font-size: 121%;">Wallet Search</h1>
+        <div class="buttons">
+        <button class="button button-clear" ng-click="closeflilter()" style="color:#fff;text-align: center;    font-size: 100%;">
+        <i class="icon ion-close-circled"></i>
+        </button>
+        </div>
+        </ion-header-bar>
+        <ion-content>
+        <ion-radio ng-repeat="item in transaction"
+        ng-value="item.value"                               
+        ng-model="loc.cl" style="    float: left;
+        font-size: 12px;width:33%;font-weight: bold;">
+        {{ item.text}}
+        </ion-radio>
+        <div>
+        <div style="text-align:center">
+        Date Range
+        </div>
+        <br/>
+        <input type="date" id="loctype" ng-model="statement.from" placeholder="From date" style="height: 44px;width:45%;margin-top:5px;margin-left:1%;float:left;
+        padding: 0px;               
+        border-style: solid;
+        border-width: 1px;
+        border-color: #B5AFAF;clear:both" >
+        <text style="float: left;margin-top: 17px;">To</text>
+        <input type="date" id="loctype" ng-model="statement.to" placeholder="To Date" style="height: 44px;width:45%;margin-top:5px;float:left;
+        padding: 0px;               
+        border-style: solid;
+        border-width: 1px;
+        border-color: #B5AFAF;clear:none" >
+        <select ng-model="statement.type" style="position:relative;    border-style: ridge;
+        border-width: 1px;
+         background-color: #337AB7;
+         border-radius: 9px;
+        height:40px;
+        width: 80%;
+        margin-left:10%;
+        margin-top:1%;
+        margin-bottom: 19px;
+        text-align: center;
+        color: white;font-size:15px;
+        font-weight: bold;">
+        <option value="">Transaction Source</option>                       
+        </select>
+
+        <button class="button icon-right ion-chevron-right button-block button-positive"  style="
+        background-color: #286090;border-color: #204d74;width:50%;margin-left:25%;float:left;clear:none" ng-click="search()">
+        Search
+        </button>
+        </div>
+        </ion-content>
+        </ion-modal-view>
+    </script>
+    <script id="gift.html" type="text/ng-template">
+        <ion-modal-view>
+         <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
+        <h1 class="title" style="color:#fff;text-align: center; font-size: 121%;">Gift Points</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeflilter()" style="color:#fff;text-align: center;    font-size: 100%;">
+                <i class="icon ion-close-circled"></i>
+            </button>
+        </div>
+    </ion-header-bar>
+        <ion-content>
+       <ion-radio ng-repeat="item in paymentoption"
+                               ng-value="item.value"
+                               ng-change="change(item.value)"
+                               ng-model="pay.gift" style="float: left;
+                               font-size: 12px;width:50%;font-weight: bold;">
+                        {{ item.text}}
+                                </ion-radio>
+                <div ng-show="show==1">
+                   <select ng-model="statement.type"  ng-change="getlw()" style="position:relative;    border-style: ridge;
+                            border-width: 1px;
+                       background-color: #337AB7;
+    border-radius: 9px;
+                            height:40px;
+                            width: 80%;
+                            margin-left:10%;
+                            margin-top:1%;
+                            margin-bottom: 19px;
+                            text-align: center;
+                            color: white;font-size:15px;
+                            font-weight: bold;">
+                        <option value="">Select Merchant</option>
+                        <option value="{{i.MerchantId}}"  ng-repeat="i in merchantlists">{{i.BusinessName}} </option>
+                    </select>
+           </div>
+                  <input type="text" id="loctype" ng-model="statement.bal" placeholder="Balance" style="height:30px;width:30%;margin-top:5px;margin-left:20%;float:left;
+                           padding: 0px;               
+                           border-style: solid;
+                           border-width: 1px;
+                           border-color: #B5AFAF;clear:none"  ng-disabled="true">
+                   <input type="text" id="loctype" ng-model="statement.gpoint" ng-change="balcheck()" placeholder="Giftpoints" style="height:30px;width:30%;margin-top:5px;margin-left:2%;float:left;
+                           padding: 0px;               
+                           border-style: solid;
+                           border-width: 1px;
+                           border-color: #B5AFAF;clear:none">
+                   <input type="text" id="loctype" ng-model="statement.username" placeholder="USerName" style="height:30px;width:60%;margin-left:20%;
+                           padding: 0px;               
+                           border-style: solid;
+                           border-width: 1px;
+                           border-color: #B5AFAF;clear:none" >
+                             <input type="password" name="pin1" maxlength="1" id="p1" style="width:25%;height:50px;border:3px inset silver;float:left"  ng-model="statement.pin1"  ng-keyup="changefocus1('p2');"/>              
+                    <input type="password" name="pin2" maxlength="1" id="p2" style="width:25%;height:50px;border:3px inset silver;float:left"  ng-model="statement.pin2"  ng-keyup="changefocus1('p3');"/>                
+                    <input type="password" name="pin3" maxlength="1" id="p3" style="width:25%;height:50px;border:3px inset silver;float:left"  ng-model="statement.pin3" ng-keyup="changefocus1('p4');"/>               
+                    <input type="password" name="pin4" maxlength="1" id="p4" style="width:25%;height:50px;border:3px inset silver;float:left"  ng-model="statement.pin4"  />
+                      <button class="button  button-block button-positive"  style="
+                            background-color: #286090;border-color: #204d74;width:30%;margin-left:20%;float:left;clear:none" ng-click="clear()">
+                       Clear
+                    </button>
+                    <button class="button  button-block button-positive"  style="
+                            background-color: #286090;border-color: #204d74;width:30%;margin-left:5%;float:left;clear:none" ng-click="sendgift()">
+                       Gift
+                    </button>
+                           
+        </ion-content>
+        </ion-modal-view>
+    </script>
+
+    <ion-content>
+
+        <div class="row">
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Points By</div>
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Name</div>
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Point</div>
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Type</div>
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Spent Amount</div>
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Balance</div>
+
+            <div class="col" style="font-weight:bold;border-top: 0;border-bottom-width:2px;vertical-align: bottom;padding: 8px;
+                 line-height: 1.42857143;background: #337ab7 !important;text-align: center;color: #fff;box-sizing: border-box;">Date</div>
+        </div>
+
+        <div class="row" ng-repeat="x in StatementsList">
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.transactiontype}}</div>
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.Name==null?x.transactiontype:x.Name}}</div>
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.Credit==null?x.Debit:x.Credit}}</div>
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.Credit==null?"In":"Out"}}</div>      
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.TotalAMount}}</div>
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.Balance}}</div>
+            <div class="col" style="border: 1px solid #ddd;color: #000 !important;">{{x.Date}}</div>
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

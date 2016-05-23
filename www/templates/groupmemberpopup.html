@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
+        <h1 class="title" style="color:#fff;text-align:center;font-size: 121%;">Select Member</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeSubmit()" style="color:#fff;text-align: center;    font-size: 100%;">
+                <i class="icon ion-close-circled"></i>
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="doSubmit()">
+            <ion-list >
+                
+                <ion-checkbox ng-click="toggleSelection(item)" name="MemberData[]" ng-checked="selection.indexOf(item) > -1" ng-value="{{item}}" ng-repeat="item in MemberData">{{item}}</ion-checkbox>
+               
+                
+            </ion-list>
+            <div class="list">
+                
+                <label class="item">
+                    <button  class="button icon-right ion-chevron-right button-block button-positive"  style="
+                            background-color: #286090;border-color: #204d74;">
+                        Submit and Close
+                    </button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,14 @@
+<ion-modal-view>
+     <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
+        <h1 class="title" style="color:#fff;text-align: center;    font-size: 121%;">MerchantAdress </h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closetable()" style="color:#fff;text-align: center;    font-size: 100%;">
+                <i class="icon ion-close-circled"></i>
+            </button>          
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div style="color: #EF7301;font-family: 'AgencyFBRegular';font-size:22px;vertical-align:middle">
+      {{promtion.City=="Select City"?"":promtion.City}}{{promtion.Street2+","+promtion.Street1+"-"+promtion.ZipCode}}      </div>
+    </ion-content>
+</ion-modal-view>
