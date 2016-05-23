@@ -1,0 +1,71 @@
+<ion-view view-title="Offer List">
+    <ion-nav-buttons side="right">      
+        <button class="button" ng-click="open()">
+            <i class="ion-search"></i>
+        </button>
+    </ion-nav-buttons>
+    <script id="iwt-modal.html" type="text/ng-template">
+        <ion-modal-view>
+        <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
+        <h2 class="title" style="color:#fff;text-align: center;    font-size: 121%;">Add Offer</h2>
+
+        <div class="buttons">
+        <button class="button button-clear" ng-click="close()" style="color:#fff;text-align: center;    font-size: 100%;">
+        <i class="icon ion-close-circled"></i>
+        </button>
+        </div>
+        </ion-header-bar>
+        <ion-content>
+        <div style="text-align:center">
+        <input type="checkbox"  ng-model="filter.cb1"/>Accepted   <br/>     
+        <input type="checkbox"   ng-model="filter.cb2"/>Rejected  <br/>
+        <input type="checkbox"   ng-model="filter.cb3"/>Offer
+        </div>
+        <button class="button icon-right ion-chevron-right button-block button-positive"  style="background-color: #286090;border-color: #204d74;" ng-click="apply()">
+        APPLY
+        </button>
+
+        </ion-content>
+        </ion-modal-view>
+    </script>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="iwtofferlist in iwtofferlists" ng-click="offerdetail(iwtofferlist.IwtId,iwtofferlist.MerchantId,iwtofferlist.IwtOfferId,iwtofferlist.IsSeen)">
+                <div style="height:70px !important;width: 70px;float:left;
+                 text-align: center;border-radius: 50px;border-style: groove;box-shadow: 0px 0px 1px 1px #0B467C;border-color: rgba(0, 0, 0, 0.24);background-color:#28A54C;
+                 border-width: 1px;">
+                    <text style="color: #FFF;font-family: Arial, Helvetica, sans-serif;  font-size: 12px;font-weight:bold">Price</text><br/>
+                    <text style="color: #FFF;font-family: Arial, Helvetica, sans-serif;  font-size: 12px;">{{iwtofferlist.OfferPrice}}</text>
+                </div>
+                <div style="float:left;margin-right:10px">{{iwtofferlist.BusinessName}}</div><br/>
+                <div style="float:left;margin-right:10px;font-size:12px">{{keyword}}</div>
+                
+                <div style="text-align: center;float:left">
+                    <i class="icon ion-location"></i>                        
+                    {{cal(iwtofferlist.merchantLat, iwtofferlist.merchantLong)}}M</div>
+                <div style="text-align:center;font-size:12px">{{iwtofferlist.Status}}</div>
+                <hr/>
+                 <div style="float:left;margin-right:1%;font-size:10px">
+                    <text>
+                    Date:
+                    </text>
+                    <text>{{iwtofferlist.OfferEndDate.split('T')[0]}}</text>
+                </div>
+                <div style="float:left;margin-right:1%;margin-left:1%;font-size:10px">
+                    <text>
+                    LP:
+                    </text>
+                    <text>{{iwtofferlist.LP}}/$1</text>
+                </div>
+                <div style="float:left;margin-right:5%;font-size:10px">
+                    <text>
+                    RW:
+                    </text>
+                    <text>
+                    {{iwtofferlist.RW=true?"Yes":"No"}}                       
+                    </text>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

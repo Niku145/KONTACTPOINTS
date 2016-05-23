@@ -1,30 +1,445 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <head>
+        <meta charset="utf-8">
 
-    
-    <link href="css/ionic.css" rel="stylesheet" type="text/css"/>
-    <link href="css/style.css" rel="stylesheet">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title></title>
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+        <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+        <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+        <link href="css/ionic.app.css" rel="stylesheet">
+        -->
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+        <!-- ionic/angularjs js -->
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-  </head>
 
-  <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
-  </body>
+
+
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+
+        <!-- cordova script (this will be a 404 during development) -->
+
+        <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+        <script src="lib/ngstorage/ngStorage.min.js"></script> 
+
+        <!-- angular moment -->
+
+        <script src="cordova.js"></script>   
+        <script src="lib/ionic/js/angular/angular-resource.js"></script>
+
+        <script src="js/angular-moment.min.js" type="text/javascript"></script>
+        <script src="js/jquery-1.4.1.js" type="text/javascript"></script>
+        <script src="lib/ionic/js/angular/angular-sanitize.min.js" type="text/javascript"></script>
+        <script src="js/moment.min.js" type="text/javascript"></script>
+        <!-- your app's js -->
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/factory.js"></script>
+        <script src="js/elastic.js"></script>
+        <script src="lib/angular-sanitize/angular-sanitize.js" type="text/javascript"></script>
+        <script src="lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&libraries=places">
+        </script>
+        <link href="css/autocomplete.css" rel="stylesheet" type="text/css"/>
+        <style>
+            ion-header-bar {
+                border-bottom: 1px solid #e5e5e5;
+                background: #337ab7 !important;
+                border-radius: 4px 4px 0 0;
+            }
+
+            .header-item {
+                color: white !important;
+            }
+            .item-avatar,
+            .item-avatar .item-content,
+            .item-avatar-left,
+            .item-avatar-left .item-content {
+                padding-left: 72px;
+                min-height: 55px;
+            }
+            .titlebar {
+                background: #0c4980;
+                color: #fff;
+                font-family: 'AgencyFBRegular';
+                font-size: 20px;
+                line-height: 35px;
+                margin: 0 0 10px 0;
+                text-align: center;
+                padding: 5px 0;
+            }
+        </style>
+
+
+        <!-- <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+       <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
+        <style>
+
+            .item-radio .radio-icon{
+                font-size:18px;
+            }
+        </style>
+        <style>
+            #tt{
+                background: #0c4980;
+                color: #fff;
+                font-family: 'AgencyFBRegular';
+                font-size: 15px;
+                line-height: 28px;
+                margin: 0 0 10px 0;
+                text-align: center;
+                padding: 5px 0;
+            }
+            #tl{
+                border-style: none;
+                color: #fff;
+                background: none;
+                background-color: #337ab7;
+                border-color: #2e6da4;
+                display: inline-block;
+                padding: 6px 12px;
+                margin-bottom: 0;
+                width:100%;
+                font-weight: bold;
+                line-height: 28px;
+                text-align: left;
+                white-space: nowrap;
+                vertical-align: middle;
+
+
+                background-image: none;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                margin-top: 0px;
+
+                font-size: 15px;
+            }
+            #tx{
+
+                font-family: 'CenturyGothic';
+                font-size: 17px;
+                color: #454545;
+                background: #fff;
+                border: 1px solid #ccc;
+                line-height: 25px;
+                margin: 0;
+                text-align: center;
+                padding: 6px 0;
+                height: 38px !important;
+                margin-top: 6px;
+                border-radius: 0px !important;
+            }
+        </style>
+        <style>
+
+            .flip-container {
+                -webkit-perspective: 1000;
+                -moz-perspective: 1000;
+                -o-perspective: 1000;
+                perspective: 1000;
+            }
+
+            .flip-container.flip .flipper {
+                -webkit-transform: rotateY(-180deg);
+                -moz-transform: rotateY(-180deg);
+                -o-transform: rotateY(-180deg);
+                -ms-transform: rotateY(-180deg);
+                transform: rotateY(-180deg);
+            }
+
+            .flip-container,
+            .front,
+            .back {
+                margin-bottom: 40px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .flip-container .top,
+            .front .top,
+            .back .top {
+                padding: 30px 20px;
+            }
+
+            .flip-container .top,
+            .flip-container .icon-holder,
+            .front .top,
+            .front .icon-holder,
+            .back .top,
+            .back .icon-holder {
+                background-color: #777777;
+                color: #fff;
+            }
+
+            .flip-container .icon-holder,
+            .front .icon-holder,
+            .back .icon-holder {
+                margin: -25px auto 0;
+                border-radius: 50%;
+                border: 6px solid #fff;
+                width: 50px;
+                height: 50px;
+                padding: 7px 10px 10px;
+                font-size: x-large;
+            }
+
+            .front.success .top,
+            .front.success .icon-holder,
+            .back.success .top,
+            .back.success .icon-holder {
+                background-color: #23AE89;
+                color: #fff;
+            }
+            /* flip speed goes here */
+
+            .flipper {
+                transition: 0.6s;
+                -webkit-transition: 0.6s;
+                -moz-transition: 0.6s;
+                -o-transition: 0.6s;
+                -ms-transition: 0.6s;
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                -o-transform-style: preserve-3d;
+                -ms-transform-style: preserve-3d;
+                position: relative;
+            }
+            /* hide back of pane during swap */
+
+            .front,
+            .back {
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                -o-backface-visibility: hidden;
+                backface-visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            /* front pane, placed above back */
+
+            .front {
+                z-index: 2;
+                /* for firefox 31 */
+
+                -webkit-transform: rotateY(0deg);
+                -moz-transform: rotateY(0deg);
+                -o-transform: rotateY(0deg);
+                -ms-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+            }
+            /* back, initially hidden pane */
+
+            .back {
+                -webkit-transform: rotateY(180deg);
+                -moz-transform: rotateY(180deg);
+                -o-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+            }
+        </style>
+        <style>
+            .bar-footer {
+                overflow: visible !important;
+            }
+
+            .bar-footer textarea {
+                resize: none;
+                height: 25px;
+            }
+
+            /* fixes an ios bug bear */
+            button.ion-android-send {
+                padding-top: 2px;
+            }
+
+            /* add this to keep your footer buttons down 
+            at the bottom as the textarea resizes */
+            .footer-btn-wrap {
+                position: relative; 
+                height: 100%; 
+                width: 50px; 
+                top: 7px;
+            }
+
+            .footer-btn {
+                position: absolute !important; 
+                bottom: 0;
+            }
+
+            img.profile-pic {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                position: absolute;
+                bottom: 10px;
+            }
+
+            img.profile-pic.left {
+                left: 10px;
+            }
+
+            img.profile-pic.right {
+                right: 10px;
+            }
+
+            .ion-email {
+                /*                float: right;*/
+                /*                font-size: 32px;*/
+                vertical-align: middle;
+            }
+
+            .message {
+                font-size: 14px;
+            }
+
+            .message-detail {
+                white-space: nowrap;
+                font-size: 14px;
+            }
+
+            .bar.item-input-inset .item-input-wrapper input {
+                width: 100% !important;
+            }
+
+            .message-wrapper {
+                position: relative;
+            }
+
+            .message-wrapper:last-child {
+                margin-bottom: 10px;
+            }
+
+            .chat-bubble {
+                border-radius: 5px;
+                display: inline-block;
+                padding: 10px 18px;
+                position: relative;
+                margin: 10px;
+                max-width: 80%;
+            }
+
+            .chat-bubble:before {
+                content: "\00a0";
+                display: block;
+                height: 16px;
+                width: 9px;
+                position: absolute;
+                bottom: -7.5px;
+            }
+
+            .chat-bubble.left {
+                background-color: #e6e5eb;
+                float: left;
+                margin-left: 55px;
+            }
+
+            .chat-bubble.left:before {
+                background-color: #e6e5eb;
+                left: 10px;
+                -webkit-transform: rotate(70deg) skew(5deg);
+            }
+
+            .chat-bubble.right {
+                background-color: #158ffe;
+                color: #fff;
+                float: right;
+                margin-right: 55px;
+            }
+
+            .chat-bubble.right:before {
+                background-color: #158ffe;
+                right: 10px;
+                -webkit-transform: rotate(118deg) skew(-5deg);
+            }
+
+            .chat-bubble.right a.autolinker {
+                color: #fff;
+                font-weight: bold;
+            }
+
+            .user-messages-top-icon {
+                font-size: 28px;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                top: -3px;
+                right: 5px;
+            }
+
+            .msg-header-username {
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                top: -3px;
+            }
+
+            /*            input, textarea, .item-input, .item-input-wrapper {
+                            background-color: #f4f4f4 !important;
+                            width:100%
+                        }*/
+
+            .bold {
+                font-weight: bold;
+            }
+
+            .cf {
+                clear: both !important;
+            }
+
+            a.autolinker {
+                color: #3b88c3;
+                text-decoration: none;
+            }
+
+            /* loading */
+            .loader-center {
+                height: 100%;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-direction: normal;
+                -moz-box-direction: normal;
+                -webkit-box-orient: horizontal;
+                -moz-box-orient: horizontal;
+                -webkit-flex-direction: row;
+                -ms-flex-direction: row;
+                flex-direction: row;
+                -webkit-flex-wrap: nowrap;
+                -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-align-content: stretch;
+                -ms-flex-line-pack: stretch;
+                align-content: stretch;
+                -webkit-box-align: center;
+                -moz-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .loader .ion-loading-c {
+                font-size: 64px;
+            }
+        </style>
+
+
+    </head>
+
+    <body ng-app="starter">
+    <ion-nav-view>
+
+    </ion-nav-view>
+</body>
 </html>

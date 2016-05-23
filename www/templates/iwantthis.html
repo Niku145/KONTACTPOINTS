@@ -1,0 +1,87 @@
+<ion-view view-title="I Want this">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="iwtlist()">
+            <i class="ion ion-ios-list "></i>
+        </button>     
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="autocomplete" style=" display: inline-block;border:3px;z-index:10;width:99.2%;">
+            <autocomplete attr-placeholder="what are you looking for?" click-activation="true" data="movies" on-type="doSomething" on-select="doSomethingElse" style="border:3px;border-color:blue !important;z-index:10;width:100%;float:left;clear:both" ng-model="iwt.findtext" ></autocomplete>
+            <text style="color:red;float:left">*</text>
+        </div>
+        <input type="text" ng-model="iwt.desc" placeholder="Give a Brief description" style="height: 44px;width:90%;margin-top: 13px;
+               padding: 0px;               
+               border-style: solid;
+               border-width: 1px;
+               float:left;
+               border-color: #B5AFAF;clear:both" required><text style="color:red;float:left">*</text>
+        <!--        <select ng-model="iwt.price" style="position:relative;    border-style: ridge;
+                        border-width: 1px;
+                        background-color: rgb(239, 115, 1);
+                        height:44px;
+                        width: 60%;
+                        margin-left:20%;
+                        margin-top:10px;
+                        margin-bottom: 19px;
+                        text-align: center;
+                        color: white;
+                        font-size: 18px;
+                        font-weight: bold;">
+                    <option value="">Select Max Price</option>
+                    <option value="{{i}}"  ng-repeat="i in [100,200,500]">{{i}} </option>
+                </select>-->
+        <input type="text" ng-model="iwt.price" placeholder="MAx Price" style="height: 44px;width:90%;margin-top: 13px;
+               padding: 0px;               
+               border-style: solid;
+               border-width: 1px;
+               float:left;
+               border-color: #B5AFAF;clear:none" required><text style="color:red;float:left">*</text>
+        <input type="date" ng-model="iwt.date" placeholder="When do you want it by?" style="height: 44px;width:90%;margin-right:8px;margin-top: 13px;
+               padding: 0px;               
+               border-style: solid;
+               border-width: 1px;
+               float:left;
+               border-color: #B5AFAF;clear:none" required><text style="color:red;float:left">*</text>
+        <select ng-model="iwt.type" style="position:relative;    border-style: ridge;
+                border-width: 1px;
+                height:44px;
+                width: 90%;
+                background-color: #337AB7;
+                border-radius: 9px;
+                margin-top:10px;
+                margin-bottom: 19px;
+                text-align: center;
+                color: white;font-size: 18px;
+                font-weight: bold;">
+            <option value="">Select Type</option>
+            <option value="{{i}}"  ng-repeat="i in ['Inshop', 'Online', 'Both']">{{i}} </option>
+        </select>
+        <ion-radio ng-repeat="item in paymentoption"
+                   ng-value="item.value"
+                   ng-change="location(item.value)"
+                   ng-model="loc.cl" style="    float: left;
+                   font-size: 12px;width:50%;font-weight: bold;">
+            {{ item.text}}
+        </ion-radio>
+        <input type="text" id="loctype" ng-model="iwt.loc" placeholder="Enter PostCode" style="height: 44px;width:100%;margin-top:65px;
+               padding: 0px;               
+               border-style: solid;
+               border-width: 1px;
+               border-color: #B5AFAF;clear:none" ng-blur="latlng()">
+        <select ng-model="iwt.radius" style="position:relative;    border-style: ridge;
+                border-width: 1px;
+                background-color: #337AB7;
+                border-radius: 9px;
+                height:44px;
+                width:100%;
+                margin-top:10px;
+                margin-bottom: 19px;
+                text-align: center;
+                color: white;font-size: 18px;
+                font-weight: bold;">
+            <option value="">Select Radius</option>
+            <option value="{{i}}"  ng-repeat="i in [2, 5, 10]">{{i}} </option>
+        </select>
+        <button class="button button-block button-positive"  style="background-color: #286090;border-color: #204d74;width:80%;margin-right:0%;margin-left:10%;float:left;clear:none;" ng-click="list()">I Want This</button> 
+    </ion-content> 
+</ion-view>

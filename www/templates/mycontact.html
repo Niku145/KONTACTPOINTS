@@ -1,0 +1,18 @@
+﻿<ion-view  view-title="My Contact" cache-view="false" style="color:white !important;"> 
+
+
+    <ion-content>
+
+        <div class="list">
+
+            <a class="item item-avatar" href="#" ng-repeat="x in MyContactData">                    
+                <img src="img/kplogo.png" style="border:1px;border-style: groove;">
+                <h2>{{x.FirstName}}  {{x.LastName}}</h2>
+                <button class="button icon-left ion-chevron-right button-clear button-dark" style="float:right;" ng-click="redirectMyCard()"></button>          
+                <p>{{x.TagName}}</p>              
+             </a>   
+        </div>
+
+
+    </ion-content>
+</ion-view>
