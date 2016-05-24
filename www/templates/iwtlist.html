@@ -7,7 +7,7 @@
     <script id="iwt-modal1.html" type="text/ng-template">
                <ion-modal-view>
                <ion-header-bar style="border-bottom:1px solid #e5e5e5;background: #337ab7;border-radius: 4px 4px 0 0;">
-               <h2 class="title" style="color:#fff;text-align: center;    font-size: 121%;">Add Offer</h2>
+               <h2 class="title" style="color:#fff;text-align: center;    font-size: 121%;">Search List</h2>
                 
                  <div class="buttons">
      <button class="button button-clear" ng-click="close()" style="color:#fff;text-align: center;    font-size: 100%;">
@@ -17,10 +17,10 @@
                </ion-header-bar>
                <ion-content>
                <div style="text-align:center">
-               <input type="checkbox"  ng-model="filter.cb1"/>POSTED  <br/>     
-               <input type="checkbox"   ng-model="filter.cb2"/>REPLY  <br/>
-               <input type="checkbox"   ng-model="filter.cb3"/>SEEN <br/>
-       <input type="checkbox"   ng-model="filter.cb3"/>SEEN
+               <input type="radio" name="fliter" ng-model="filter.cb" value="POSTED"/>POSTED  <br/>     
+               <input type="radio" name="fliter"  ng-model="filter.cb" value="REPLY"/>REPLY  <br/>
+               <input type="radio" name="fliter"  ng-model="filter.cb" value="SEEN"/>SEEN <br/>  
+               <input type="radio" name="fliter"  ng-model="filter.cb" value="ALL" selected/>All <br/> 
                </div>
               <button class="button icon-right ion-chevron-right button-block button-positive"  style="background-color: #286090;border-color: #204d74;" ng-click="apply()">
                           APPLY
@@ -43,32 +43,32 @@
                 </div>
                 </ion-header-bar>
                 <ion-content>
-                <input type="text" ng-model="iwt.findtxt" style="height:30px;width:60%;margin-top: 13px;margin-left:20%;
+                <input type="text" ng-model="iwt.ufindtxt" style="height:30px;width:60%;margin-top: 13px;margin-left:20%;
                 padding: 0px;               
                 border-style: solid;
                 border-width: 1px;
                 float:left;
                 border-color: #B5AFAF;clear:none">
-                <input type="text" ng-model="iwt.desc" style="height:30px;width:60%;margin-top: 13px;margin-left:20%;
+                <input type="text" ng-model="iwt.udesc" style="height:30px;width:60%;margin-top: 13px;margin-left:20%;
                 padding: 0px;               
                 border-style: solid;
                 border-width: 1px;
                 float:left;
                 border-color: #B5AFAF;clear:none">
-                <input type="text" ng-model="iwt.price" placeholder="MAx Price" style="height:30px;width:60%;margin-top: 13px;margin-left:20%;
+                <input type="text" ng-model="iwt.uprice" placeholder="MAx Price" style="height:30px;width:60%;margin-top: 13px;margin-left:20%;
                 padding: 0px;               
                 border-style: solid;
                 border-width: 1px;
                 float:left;
                 border-color: #B5AFAF;clear:none">
-                <input type="date" ng-model="iwt.date" placeholder="When do you want it by?" style="height:30px;width:60%;margin-right:8px;margin-left:20%;margin-top: 13px;
+                <input type="date" ng-model="iwt.udate" placeholder="When do you want it by?" style="height:30px;width:60%;margin-right:8px;margin-left:20%;margin-top: 13px;
                 padding: 0px;               
                 border-style: solid;
                 border-width: 1px;
                 float:left;
                 border-color: #B5AFAF;clear:none">
 
-                <button class="button icon-right ion-chevron-right button-block button-positive"  style="background-color: #286090;border-color: #204d74;" ng-click="apply()">
+                <button class="button icon-right ion-chevron-right button-block button-positive"  style="background-color: #286090;border-color: #204d74;" ng-click="applyupdate()">
                 APPLY
                 </button>
 

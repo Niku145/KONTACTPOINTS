@@ -12,7 +12,7 @@
             <div class="list">
                 <label class="item item-input">
                     <span class="input-label">First Name <text style="color:red;clear:both">*</text></span>
-                    <input type="text" ng-model="loginData.fname" placeholder="Enter First Name" required>
+                    <input type="text" ng-model="loginData.fname" placeholder="Enter First Name" >
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Last Name</span>
@@ -21,15 +21,15 @@
 
                 <label class="item item-input">
                     <span class="input-label">Email<text style="color:red;clear:both">*</text></span>
-                    <input type="text" ng-model="loginData.username" placeholder="Enter Email Address" required >
+                    <input type="email" ng-model="loginData.username" placeholder="Enter Email Address"  >
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password<text style="color:red;clear:both">*</text></span>
-                    <input type="password" ng-model="loginData.password" placeholder="Enter Password" required>
+                    <input type="password" ng-model="loginData.password" placeholder="Enter Password" >
                 </label>
                 <label class="item item-input">
                     <span class="input-label">PIN<text style="color:red;clear:both">*</text></span>
-                    <input type="text" ng-model="loginData.pin" placeholder="Enter Pin" required>
+                    <input type="password" ng-model="loginData.pin" placeholder="Enter Pin" >
                 </label>
                 <!--                <select ng-model="loginData.country" style="position:relative;    border-style: ridge;
                                         border-width: 1px;
@@ -66,9 +66,9 @@
 
                 <select ng-model="loginData.yob" style="position:relative;    border-style: ridge;
                         border-width: 1px;
-                         background-color: #337AB7;
-    border-radius: 9px;
-                            height:40px;
+                        background-color: #337AB7;
+                        border-radius: 9px;
+                        height:40px;
                         width: 80%;
                         margin-left:10%;
                         margin-top:3%;
