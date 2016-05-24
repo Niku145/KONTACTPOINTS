@@ -8,7 +8,7 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
         .controller('HomeCtrl', function (KpFactory, $scope, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
             debugger;
             $scope.getmail = {};
-           
+
             $scope.questions = ["What is your Nickname",
                 "Where is your Native",
                 "Which is your Favourite Color",
@@ -95,13 +95,12 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                         //$localStorage.Phone = response.Data[0].Phone;
                         $localStorage.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
                         //$localStorage.Gender = response.Data[0].Gender;
-                        if(response.Data[0].Photo!==null){
+                        if (response.Data[0].Photo !== null) {
                             $localStorage.Photo = "http://kontactpoints.com/" + response.Data[0].Photo.replace('~', '').trim();
+                        } else {
+                            $localStorage.Photo = "img/kplogo.png";
                         }
-                        else{
-                            $localStorage.Photo="img/kplogo.png";
-                        }
-                        
+
                         //  http://kontactpoints.com/{{ProfileData.Logo.replace('~','').trim()}}
                         $scope.Photo = $localStorage.Photo;
                         $scope.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
@@ -124,9 +123,29 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                     // console.log(response);
                 });
             };
-          
+
             $scope.doSignup = function () {
-              
+                if ($scope.loginData.fname == null || $scope.loginData.username == null || $scope.loginData.password == null || $scope.loginData.pin == null)
+                {
+                    var error = "";
+                    debugger;
+                    if ($scope.loginData.fname == null) {
+                        error += "-plz enter first name\n";
+                    }
+                    if ($scope.loginData.username == null) {
+                        error += "-plz enter email\n";
+                    }
+                    if ($scope.loginData.password == null) {
+                        error += "-plz enter password\n";
+                    }
+                    if ($scope.loginData.pin == null) {
+                        error += "-plz enter pin\n";
+                    }
+                    if (error == null) {
+                    } else {
+                        alert(error);
+                    }
+                } else {
                     debugger;
                     var SignupArray = {
                         "UserName": $scope.loginData.username,
@@ -158,7 +177,7 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                         }
 
                     });
-               
+                }
             };
             $scope.getpassword = function () {
 
@@ -178,7 +197,7 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                     }
 
                 });
-            }
+            };
 
 
         })
@@ -1797,7 +1816,7 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                 ToUserID: $localStorage.MerchantInfoID,
                 City: "amd",
                 Lattitude: "",
-                Longitude:""
+                Longitude: ""
             }
 
 
@@ -2234,49 +2253,72 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
 
             }
             $scope.list = function () {
-
-                debugger;
-                var iwtArray = {
-                    ConsumerId: $localStorage.UserId,
-                    Radious: $scope.iwt.radius,
-                    Description: $scope.iwt.desc,
-                    BudgetMax: $scope.iwt.price,
-                    EndDate: $scope.iwt.date.getFullYear() + "/" + ($scope.iwt.date.getMonth() + 1) + "/" + $scope.iwt.date.getDate(),
-                    Keywords: $scope.iwt.findtext,
-                    MerchantType: $scope.iwt.type,
-                    PostCode: $scope.iwt.loc,
-                    Location: $scope.loc.cl,
-                    Lattitude: $scope.iwt.lat,
-                    Longitude: $scope.iwt.lng
-                }
-                KpFactory.addiwt(iwtArray).then(function (response) {
+                if ($scope.iwt.findtext == null || $scope.iwt.desc == null || $scope.iwt.price == null || $scope.iwt.date == null) {
+                    var error = "";
                     debugger;
-                    if (response.data.status == "Success") {
-                        alert(response.data.msg);
-                    } else {
-
-                        alert(response.data.msg);
+                    if ($scope.iwt.findtext == null) {
+                        error += "-plz enter keyword\n";
                     }
+                    if ($scope.iwt.desc == null) {
+                        error += "-plz enter description\n";
+                    }
+                    if ($scope.iwt.price == null) {
+                        error += "-plz enter price\n";
+                    }
+                    if ($scope.iwt.date == null) {
+                        error += "-plz enter date\n";
+                    }
+                    if (error == null) {
+                    } else {
+                        alert(error);
+                    }
+                } else {
+                    debugger;
+                    var iwtArray = {
+                        ConsumerId: $localStorage.UserId,
+                        Radious: $scope.iwt.radius,
+                        Description: $scope.iwt.desc,
+                        BudgetMax: $scope.iwt.price,
+                        EndDate: $scope.iwt.date.getFullYear() + "/" + ($scope.iwt.date.getMonth() + 1) + "/" + $scope.iwt.date.getDate(),
+                        Keywords: $scope.iwt.findtext,
+                        MerchantType: $scope.iwt.type,
+                        PostCode: $scope.iwt.loc,
+                        Location: $scope.loc.cl,
+                        Lattitude: $scope.iwt.lat,
+                        Longitude: $scope.iwt.lng
+                    }
+                    KpFactory.addiwt(iwtArray).then(function (response) {
+                        debugger;
+                        if (response.data.status == "Success") {
+                            alert(response.data.msg);
+                        } else {
 
-                });
+                            alert(response.data.msg);
+                        }
 
+                    });
+                }
             }
+
         })
         .controller('iwtlistCtrl', function ($scope, $rootScope, KpFactory, $ionicModal, $timeout, $localStorage, $state, $ionicHistory, $ionicLoading) {
             $scope.iwtlists = {};
             $scope.iwt = {};
-            $scope.filter = {};
-            $scope.filter.cb1 = false;
-            $scope.filter.cb2 = false;
-            $scope.filter.cb3 = false;
+            $scope.filter = {
+                'cb': 'ALL'
+            };
+            $ionicLoading.show({
+                template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+            });
             var iwtlistArray = {
                 ConsumerId: $localStorage.UserId,
                 Filter: "ALL"
             }
             KpFactory.iwtlist(iwtlistArray).then(function (response) {
+                $ionicLoading.hide();
                 debugger;
                 if (response.data.status == "Success") {
-                    alert(response.data.msg);
+
                     $scope.iwtlists = response.data.Data;
                 } else {
 
@@ -2290,10 +2332,10 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
             $scope.iwtupdate = function (id, desc, keyword, date, budget) {
                 debugger;
                 $scope.iwtId = id;
-                $scope.iwt.findtxt = keyword;
-                $scope.iwt.desc = desc;
-                $scope.iwt.price = budget;
-                $scope.iwt.date = new Date(date.split("-")[1], (date.split("-")[2]).split("T")[0], date.split("-")[0]);
+                $scope.iwt.ufindtxt = keyword;
+                $scope.iwt.udesc = desc;
+                $scope.iwt.uprice = budget;
+                $scope.iwt.udate = new Date(date.split("-")[0], (date.split("-")[1] - 1), (date.split("-")[2]).split("T")[0]);
                 $ionicModal.fromTemplateUrl('iwt-modal.html', {
                     scope: $scope
                 }).then(function (modal) {
@@ -2302,14 +2344,14 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                 });
                 // $scope.modal.show();
             };
-            $scope.apply = function () {
+            $scope.applyupdate = function () {
                 debugger;
                 var updtArray = {
                     IwtId: $scope.iwtId,
-                    Description: $scope.iwt.desc,
-                    BudgetMax: $scope.iwt.price,
-                    EndDate: $scope.iwt.date.getFullYear() + "/" + ($scope.iwt.date.getMonth() + 1) + "/" + $scope.iwt.date.getDate(),
-                    Keywords: $scope.iwt.findtext
+                    Description: $scope.iwt.udesc,
+                    BudgetMax: $scope.iwt.uprice,
+                    EndDate: $scope.iwt.udate.getFullYear() + "/" + ($scope.iwt.udate.getMonth() + 1) + "/" + $scope.iwt.udate.getDate(),
+                    Keywords: $scope.iwt.ufindtxt
 
                 }
                 KpFactory.iwtlistupdate(updtArray).then(function (response) {
@@ -2324,10 +2366,10 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                 });
                 $scope.modal.hide();
             }
-            $scope.offerlist = function (iwtid, lat, long,keyword) {
+            $scope.offerlist = function (iwtid, lat, long, keyword) {
                 debugger;
                 $rootScope.iwtid = iwtid;
-                $state.go('app.iwtofferlist', {'IwtID': iwtid, 'Lat': lat, 'Long': long,'Keyword':keyword})
+                $state.go('app.iwtofferlist', {'IwtID': iwtid, 'Lat': lat, 'Long': long, 'Keyword': keyword})
 
             }
             $scope.open = function () {
@@ -2346,7 +2388,8 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
                 debugger;
                 var iwtlistArray = {
                     ConsumerId: $localStorage.UserId,
-                    Filter: ($scope.filter.cb1 == true ? "POSTED" : "") + ($scope.filter.cb2 == true ? "REPLY," : "") + ($scope.filter.cb3 == true ? "SEEN" : "")
+//                    Filter: ($scope.filter.cb1 == true ? "POSTED" : "") + ($scope.filter.cb2 == true ? "REPLY," : "") + ($scope.filter.cb3 == true ? "SEEN" : "")
+                    Filter: $scope.filter.cb
                 }
                 KpFactory.iwtlist(iwtlistArray).then(function (response) {
                     debugger;
@@ -2369,16 +2412,19 @@ angular.module('starter.controllers', ['Kp.Factory', 'angularMoment', 'monospace
             $scope.filter.cb1 = false;
             $scope.filter.cb2 = false;
             $scope.filter.cb3 = false;
-            $scope.keyword=$stateParams.Keyword;
+            $scope.keyword = $stateParams.Keyword;
             $scope.iwtofferlists = {};
+               $ionicLoading.show({
+                template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+            });
             var offerArray = {
                 IwtId: $stateParams.IwtID,
                 Filter: "ALL"
             }
             KpFactory.iwtofferlist(offerArray).then(function (response) {
+                $ionicLoading.hide();
                 debugger;
-                if (response.data.status == "Success") {
-                    alert(response.data.msg);
+                if (response.data.status == "Success") {                   
                     $scope.iwtofferlists = response.data.Data;
                 } else {
 

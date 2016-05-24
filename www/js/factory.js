@@ -10,14 +10,14 @@ angular.module('Kp.Factory', ['angularMoment', 'monospaced.elastic'])
             var moreMovies = [];
             var keywords = {};
             var URL1 = {};
-//            URL1 = "http://kpmobileservices.kontactpoints.com/api/Services/";
-            URL1 = "http://192.168.1.151/KpAPI/api/Services/";
+            URL1 = "http://kpmobileservices.kontactpoints.com/api/Services/";
+//            URL1 = "http://192.168.1.151/KpAPI/api/Services/";
             returnData = {};
             returnData.API_URL = function () {
 
-                return "http://192.168.1.151/KpAPI/api/Services/";
+//                return "http://192.168.1.151/KpAPI/api/Services/";
 
-//                return "http://kpmobileservices.kontactpoints.com/api/Services/";
+                return "http://kpmobileservices.kontactpoints.com/api/Services/";
             }
             returnData.getLogin = function (LoginArray) {
 

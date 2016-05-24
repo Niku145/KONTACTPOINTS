@@ -5,127 +5,116 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ionic-datepicker', 'ngCordova', 'ngStorage', 'starter.controllers', 'monospaced.elastic', 'angularMoment', 'Kp.Factory', 'ngSanitize'])
 
-        .run(function ($ionicPlatform, $localStorage, $rootScope, $cordovaGeolocation, $cordovaPush, $state, KpFactory, $ionicLoading, $ionicModal, $timeout, $ionicHistory) {
+       // .run(function ($ionicPlatform, $localStorage, $rootScope, $cordovaGeolocation, $cordovaPush, $state, KpFactory, $ionicLoading, $ionicModal, $timeout, $ionicHistory) {
+ .run(function ($ionicPlatform, $localStorage,$cordovaGeolocation, $state, KpFactory, $ionicLoading, $ionicModal, $timeout, $ionicHistory) {
 
             var androidConfig = {
                 "senderID": "1063978477551",
             };
             $localStorage.ConsumerId = "";
             $localStorage.MerchantId = "";
-            document.addEventListener("deviceready", function () {
-                $cordovaPush.register(androidConfig).then(function (result) {
-                    // Success
-                    // alert("Success Token");
-                }, function (err) {
-                    alert("Fail Token");
-                    alert(JSON.stringify(err));
-                })
-
-                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification) {
-                    switch (notification.event) {
-                        case 'registered':
-                            if (notification.regid.length > 0) {
-                                //  alert('registration ID = ' + notification.regid);
-                                $localStorage.AccessToken = notification.regid;
-                                //   alert($localStorage.AccessToken);
-                            }
-                            break;
+              $localStorage.AccessToken ="";
+//            document.addEventListener("deviceready", function () {
+//                $cordovaPush.register(androidConfig).then(function (result) {                    
+//                }, function (err) {
+//                    alert("Fail Token");
+//                    alert(JSON.stringify(err));
+//                })
 //
-                        case 'message':
-                            // this is the actual push notification. its format depends on the data model from the push server
-                            alert("Kontact Points Merchant Send One New Transaction Request");
-                            //console.log(JSON.stringify(notification));
-                            //  console.log(JSON.stringify(notification.payload.data));
-                            // console.log(JSON.stringify(notification.payload.data.AdditionaData));
-                            // console.log(JSON.stringify(notification.message));
-                            //alert('ConsumerId = ' + notification.payload.data.AdditionaData.ConsumerId);
-                            // alert('MerchantId = ' + notification.payload.data.AdditionaData.MerchantId);
-                            //  alert('type = ' + notification.payload.data.AdditionaData.type);
-                            // alert('status = ' + notification.payload.data.AdditionaData.status);
-
-                            //  alert('UserName = ' + notification.payload.data.AdditionaData.UserName);
-                            // alert('Password = ' + notification.payload.data.AdditionaData.Password);
-
-                            if (notification.payload.data.AdditionaData.type.toString() == "Transaction")
-                            {
-                                $localStorage.ConsumerId = notification.payload.data.AdditionaData.ConsumerId;
-                                $localStorage.MerchantId = notification.payload.data.AdditionaData.MerchantId;
-                                $localStorage.UserName = notification.payload.data.AdditionaData.UserName;
-                                $localStorage.Password = notification.payload.data.AdditionaData.Password;
-
-                                $ionicLoading.show({
-                                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
-                                });
-                                debugger;
-                                var LoginArray = {
-                                    "UserName": notification.payload.data.AdditionaData.UserName,
-                                    "password": notification.payload.data.AdditionaData.Password,
-                                    "DeviceToken": $localStorage.AccessToken
-                                };
-
-                                $rootScope.LoginData = {};
-
-                                KpFactory.getLogin(LoginArray).then(function (response) {
-                                    console.log("OK");
-                                    debugger;
-
-                                    if (response.Data != null) {
-
-                                        $rootScope.LoginData = response.Data;
-                                        $localStorage.ProfileData = "";
-                                        $localStorage.ProfileData = response.Data;
-                                        $localStorage.UserId = response.Data[0].UserId;
-                                        $localStorage.Email = response.Data[0].Email;
-                                        $localStorage.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
-                                        $localStorage.Photo = "http://kontactpoints.com/" + response.Data[0].Photo.replace('~', '').trim();
-
-                                        $rootScope.Photo = $localStorage.Photo;
-                                        $rootScope.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
-                                        $timeout(function () {
-                                            $scope.closeLogin();
-                                        }, 100);
-                                        $ionicLoading.hide();
-
-                                        var TokenArray = {
-                                            "AccessToken": $localStorage.AccessToken
-                                        };
-                                        KpFactory.AddToken(TokenArray).then(function (response) {
-                                            //  alert(JSON.stringify(response)); 
-                                        });
-
-                                        $state.go("app.merchantTransactionRequest");
-                                    } else {
-
-                                        $ionicLoading.hide();
-                                        alert("Wrong Login Cradentials");
-
-                                    }
-                                    // console.log(response);
-                                });
-
-
-                            }
-
-                            break;
+//                $rootScope.$on('$cordovaPush:notificationReceived', function (event, notification) {
+//                    switch (notification.event) {
+//                        case 'registered':
+//                            if (notification.regid.length > 0) {
+//                                //  alert('registration ID = ' + notification.regid);
+//                                $localStorage.AccessToken = notification.regid;
+//                                //   alert($localStorage.AccessToken);
+//                            }
+//                            break;
+////
+//                        case 'message':
+//                            
+//                            alert("Kontact Points Merchant Send One New Transaction Request");
+//                          
+//                            if (notification.payload.data.AdditionaData.type.toString() == "Transaction")
+//                            {
+//                                $localStorage.ConsumerId = notification.payload.data.AdditionaData.ConsumerId;
+//                                $localStorage.MerchantId = notification.payload.data.AdditionaData.MerchantId;
+//                                $localStorage.UserName = notification.payload.data.AdditionaData.UserName;
+//                                $localStorage.Password = notification.payload.data.AdditionaData.Password;
 //
-                        case 'error':
-                            alert('GCM error = ' + notification.msg);
-                            break;
-
-                        default:
-                            alert('An unknown GCM event has occurred');
-                            break;
-                    }
-                });
-
-
-                $cordovaPush.unregister(options).then(function (result) {
-                    // Success!
-                }, function (err) {
-                    // Error
-                })
-
-            }, false);
+//                                $ionicLoading.show({
+//                                    template: 'Loading.. Please Wait <br/><ion-spinner></ion-spinner>'
+//                                });
+//                                debugger;
+//                                var LoginArray = {
+//                                    "UserName": notification.payload.data.AdditionaData.UserName,
+//                                    "password": notification.payload.data.AdditionaData.Password,
+//                                    "DeviceToken": $localStorage.AccessToken
+//                                };
+//
+//                                $rootScope.LoginData = {};
+//
+//                                KpFactory.getLogin(LoginArray).then(function (response) {
+//                                    console.log("OK");
+//                                    debugger;
+//
+//                                    if (response.Data != null) {
+//
+//                                        $rootScope.LoginData = response.Data;
+//                                        $localStorage.ProfileData = "";
+//                                        $localStorage.ProfileData = response.Data;
+//                                        $localStorage.UserId = response.Data[0].UserId;
+//                                        $localStorage.Email = response.Data[0].Email;
+//                                        $localStorage.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
+//                                        $localStorage.Photo = "http://kontactpoints.com/" + response.Data[0].Photo.replace('~', '').trim();
+//
+//                                        $rootScope.Photo = $localStorage.Photo;
+//                                        $rootScope.Name = response.Data[0].FirstName + " " + response.Data[0].LastName;
+//                                        $timeout(function () {
+//                                            $scope.closeLogin();
+//                                        }, 100);
+//                                        $ionicLoading.hide();
+//
+//                                        var TokenArray = {
+//                                            "AccessToken": $localStorage.AccessToken
+//                                        };
+//                                        KpFactory.AddToken(TokenArray).then(function (response) {
+//                                            //  alert(JSON.stringify(response)); 
+//                                        });
+//
+//                                        $state.go("app.merchantTransactionRequest");
+//                                    } else {
+//
+//                                        $ionicLoading.hide();
+//                                        alert("Wrong Login Cradentials");
+//
+//                                    }
+//                                   
+//                                });
+//
+//
+//                            }
+//
+//                            break;
+//
+//                        case 'error':
+//                            alert('GCM error = ' + notification.msg);
+//                            break;
+//
+//                        default:
+//                            alert('An unknown GCM event has occurred');
+//                            break;
+//                    }
+//                });
+//
+//
+//                $cordovaPush.unregister(options).then(function (result) {
+//                    // Success!
+//                }, function (err) {
+//                    // Error
+//                })
+//
+//            }, false);
 
 
 
